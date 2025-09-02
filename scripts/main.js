@@ -1,3 +1,4 @@
+// Course data array
 const courses = [
     { code: "CSE 110", name: "Programming Building Blocks", credits: 3, completed: true },
     { code: "WDD 130", name: "Web Fundamentals", credits: 2, completed: true },
