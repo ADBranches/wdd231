@@ -13,9 +13,17 @@
 <body>
     <header class="header">
         <h1>WDD 231: Web Frontend Development</h1>
+        
+        <!-- Add this hamburger button -->
+        <button class="menu-btn" aria-label="Toggle navigation menu">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/>
+            </svg>
+        </button>
+        
         <nav>
             <ul class="nav-list">
-                <li class="nav-item"><a href="#" class="nav-link">Home</a></li> <!-- Changed from element to class selector -->
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Chamber</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Site Plan</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Resources</a></li>
@@ -40,13 +48,20 @@
         <section class="card">
             <h2>Course Resources</h2>
             <div class="resources">
-                <!-- Using inline SVG as placeholders with lazy loading -->
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23eeeeee'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='%23999999' font-family='sans-serif' font-size='20'%3ELoading...%3C/text%3E%3C/svg%3E" 
-                     data-src="https://placehold.co/400x300/webp" alt="Web Development" class="resource-img lazy" width="400" height="300">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23eeeeee'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='%23999999' font-family='sans-serif' font-size='20'%3ELoading...%3C/text%3E%3C/svg%3E" 
-                     data-src="https://placehold.co/400x300/webp" alt="Coding" class="resource-img lazy" width="400" height="300">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23eeeeee'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='%23999999' font-family='sans-serif' font-size='20'%3ELoading...%3C/text%3E%3C/svg%3E" 
-                     data-src="https://placehold.co/400x300/webp" alt="Design" class="resource-img lazy" width="400" height="300">
+                <!-- Web Development SVG -->
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23396e94'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='20' font-weight='bold'%3EWeb Dev%3C/text%3E%3C/svg%3E" 
+                    data-src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23396e94'/%3E%3Ccircle cx='200' cy='150' r='80' fill='%23e7c24f'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='24' font-weight='bold'%3E%26lt%3B/%26gt%3B%3C/text%3E%3C/svg%3E" 
+                    alt="Web Development" class="resource-img lazy" width="400" height="300">
+                
+                <!-- Coding SVG -->
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23e7c24f'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='%23333' font-family='Arial, sans-serif' font-size='20' font-weight='bold'%3ECoding%3C/text%3E%3C/svg%3E" 
+                    data-src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23e7c24f'/%3E%3Cpath d='M150 120 L250 120 L200 180 Z' fill='%23396e94'/%3E%3Ctext x='200' y='230' text-anchor='middle' fill='%23333' font-family='Arial, sans-serif' font-size='16'%3ECode%3C/text%3E%3C/svg%3E" 
+                    alt="Coding" class="resource-img lazy" width="400" height="300">
+                
+                <!-- Design SVG -->
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23a43312'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='20' font-weight='bold'%3EDesign%3C/text%3E%3C/svg%3E" 
+                    data-src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23a43312'/%3E%3Crect x='120' y='100' width='160' height='100' fill='white'/%3E%3Ccircle cx='200' cy='150' r='30' fill='%23e7c24f'/%3E%3Ctext x='200' y='230' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='16'%3EDesign%3C/text%3E%3C/svg%3E" 
+                    alt="Design" class="resource-img lazy" width="400" height="300">
             </div>
         </section>
     </main>
