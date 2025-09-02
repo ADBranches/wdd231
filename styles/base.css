@@ -150,9 +150,27 @@ img.lazy.loaded {
 }
 
 .menu-btn img {
-    width: 32px !important;
-    height: 32px !important;
+    width: 32px;
+    height: 32px;
     transition: transform 0.3s ease;
+}
+
+/* Show menu icon, hide close icon by default */
+.menu-icon {
+    display: block;
+}
+
+.close-icon {
+    display: none !important; /* Force hide with important */
+}
+
+/* When menu is active, show close icon and hide menu icon */
+.menu-btn.active .menu-icon {
+    display: none;
+}
+
+.menu-btn.active .close-icon {
+    display: block !important; /* Force show with important */
 }
 
 /* Mobile navigation styles */
