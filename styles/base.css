@@ -153,24 +153,30 @@ img.lazy.loaded {
     width: 32px;
     height: 32px;
     transition: transform 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Show menu icon, hide close icon by default */
 .menu-icon {
     display: block;
+    opacity: 1;
 }
 
 .close-icon {
-    display: none !important; /* Force hide with important */
+    display: block;
+    opacity: 0;
 }
 
 /* When menu is active, show close icon and hide menu icon */
 .menu-btn.active .menu-icon {
-    display: none;
+    opacity: 0;
 }
 
 .menu-btn.active .close-icon {
-    display: block !important; /* Force show with important */
+    opacity: 1;
 }
 
 /* Mobile navigation styles */
@@ -198,7 +204,7 @@ img.lazy.loaded {
         top: 100%;
         left: 0;
         z-index: 1000;
-        padding: 0;
+        padding: 1rem 0;
         margin: 0;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
@@ -217,6 +223,7 @@ img.lazy.loaded {
         border-bottom: 1px solid rgba(255,255,255,0.1);
         width: 100%;
         display: block;
+        text-align: center;
     }
     
     .nav-link:hover {
