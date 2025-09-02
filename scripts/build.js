@@ -2,7 +2,7 @@ const fs = require('fs');
 const { minify } = require('terser');
 const CleanCSS = require('clean-css');
 
-// Function to minify JavaScript
+// Func to minify JavaScript
 async function minifyJS() {
     try {
         const js = fs.readFileSync('scripts/main.js', 'utf8');
@@ -18,7 +18,7 @@ async function minifyJS() {
     }
 }
 
-// Function to minify CSS
+// Func to minify CSS
 function minifyCSS() {
     try {
         const css = fs.readFileSync('styles/base.css', 'utf8');
