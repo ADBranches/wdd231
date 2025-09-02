@@ -4,46 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WDD 231 - Course Home Page</title>
-    <link rel="stylesheet" href="styles/base.css">
+    <meta name="description" content="WDD 231 Course Home Page with dynamic course listing and filtering">
+    <link rel="stylesheet" href="styles/base.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="header"> <!-- Changed from element to class selector -->
         <h1>WDD 231: Web Frontend Development</h1>
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Chamber</a></li>
-                <li><a href="#">Site Plan</a></li>
-                <li><a href="#">Resources</a></li>
+            <ul class="nav-list"> <!-- Changed from element to class selector -->
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li> <!-- Changed from element to class selector -->
+                <li class="nav-item"><a href="#" class="nav-link">Chamber</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Site Plan</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Resources</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    
+    <main class="main">
         <section class="card">
             <h2>Course List</h2>
-            <div class="filters">
+            <div class="filter-group">
                 <button class="filter-btn active" data-filter="all">All Courses</button>
                 <button class="filter-btn" data-filter="wdd">WDD</button>
                 <button class="filter-btn" data-filter="cse">CSE</button>
             </div>
-            <ul id="course-list"></ul>
+            <ul id="course-list" class="course-list"></ul>
             <div class="credits">
                 <p>Total Credits: <span id="total-credits">0</span></p>
             </div>
         </section>
+        
         <section class="card">
             <h2>Course Resources</h2>
             <div class="resources">
-                <img src="images/placeholder.svg" data-src="images/web-development.jpg" alt="Web Development" class="lazy" width="400" height="300">
-                <img src="images/placeholder.svg" data-src="images/coding.jpg" alt="Coding" class="lazy" width="400" height="300">
-                <img src="images/placeholder.svg" data-src="images/design.jpg" alt="Design" class="lazy" width="400" height="300">
+                <!-- Using inline SVG as placeholders with lazy loading -->
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23eeeeee'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='%23999999' font-family='sans-serif' font-size='20'%3ELoading...%3C/text%3E%3C/svg%3E" 
+                     data-src="https://placehold.co/400x300/webp" alt="Web Development" class="resource-img lazy" width="400" height="300">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23eeeeee'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='%23999999' font-family='sans-serif' font-size='20'%3ELoading...%3C/text%3E%3C/svg%3E" 
+                     data-src="https://placehold.co/400x300/webp" alt="Coding" class="resource-img lazy" width="400" height="300">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23eeeeee'/%3E%3Ctext x='200' y='150' text-anchor='middle' fill='%23999999' font-family='sans-serif' font-size='20'%3ELoading...%3C/text%3E%3C/svg%3E" 
+                     data-src="https://placehold.co/400x300/webp" alt="Design" class="resource-img lazy" width="400" height="300">
             </div>
         </section>
     </main>
-    <footer>
+    
+    <footer class="footer"> <!-- Changed from element to class selector -->
         <p>&copy; <span id="currentyear"></span> | Your Name | Location</p>
         <p>Last Modified: <span id="lastmodified"></span></p>
     </footer>
-    <script src="scripts/main.js"></script>
+    
+    <script src="scripts/main.min.js"></script>
 </body>
 </html>
