@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 231 - Course Home Page</title>
+    <link rel="stylesheet" href="styles/base.css">
+</head>
+<body>
+    <header>
+        <h1>WDD 231: Web Frontend Development</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Chamber</a></li>
+                <li><a href="#">Site Plan</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="card">
+            <h2>Course List</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Courses</button>
+                <button class="filter-btn" data-filter="wdd">WDD</button>
+                <button class="filter-btn" data-filter="cse">CSE</button>
+            </div>
+            <ul id="course-list"></ul>
+            <div class="credits">
+                <p>Total Credits: <span id="total-credits">0</span></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> | Your Name | Location</p>
+        <p>Last Modified: <span id="lastmodified"></span></p>
+    </footer>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
