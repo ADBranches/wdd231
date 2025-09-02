@@ -26,6 +26,7 @@ function displayCourses(filter = 'all') {
     
     filteredCourses.forEach(course => {
         const li = document.createElement('li');
+        li.className = 'course-item';
         li.textContent = `${course.code}: ${course.name} (${course.credits} credits)`;
         
         if (course.completed) {
@@ -51,14 +52,24 @@ filterButtons.forEach(button => {
         button.classList.add('active');
         displayCourses(button.dataset.filter);
     });
+    
+    // keyboard accessibility
+    button.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            button.click();
+        }
+    });
 });
 
+// current year and last modified date
 currentYear.textContent = new Date().getFullYear();
 lastModified.textContent = document.lastModified;
 
+// Initial display
 displayCourses();
 
-
+// Lazy loading implementation
 document.addEventListener("DOMContentLoaded", function() {
     let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
     let active = false;
@@ -91,8 +102,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
     
+    // event listeners for lazy loading
     document.addEventListener("scroll", lazyLoad);
     window.addEventListener("resize", lazyLoad);
     window.addEventListener("orientationchange", lazyLoad);
+    
     lazyLoad();
 });
