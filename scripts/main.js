@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
     lazyLoad();
 });
 
+
 // Hamburger menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const menuBtn = document.querySelector('.menu-btn');
