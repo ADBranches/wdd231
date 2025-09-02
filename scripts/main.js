@@ -118,10 +118,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuBtn && navList) {
         // Toggle menu function
         function toggleMenu() {
+            menuBtn.classList.toggle('active');
             navList.classList.toggle('active');
             
             // Toggle aria-expanded attribute for accessibility
-            const isExpanded = navList.classList.contains('active');
+            const isExpanded = menuBtn.classList.contains('active');
             menuBtn.setAttribute('aria-expanded', isExpanded);
         }
         
