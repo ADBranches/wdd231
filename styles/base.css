@@ -182,7 +182,7 @@ img.lazy.loaded {
 /* Mobile navigation styles */
 @media (max-width: 768px) {
     .menu-btn {
-        display: block; /* Only show on mobile */
+        display: block; /* Only showing on mobile */
     }
     
     .header {
@@ -191,8 +191,8 @@ img.lazy.loaded {
     }
     
     .header h1 {
-        padding-right: 50px; /* Space for hamburger button */
-        margin-bottom: 0; /* Remove default margin */
+        padding-right: 50px;
+        margin-bottom: 0; 
     }
     
     .nav-list {

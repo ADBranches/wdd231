@@ -117,23 +117,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const navList = document.querySelector('.nav-list');
     
     if (menuBtn && navList) {
-        // Toggle menu function
+        // Toggling menu function
         function toggleMenu() {
             menuBtn.classList.toggle('active');
             navList.classList.toggle('active');
             
-            // Toggle aria-expanded attribute for accessibility
+            // Toggling aria-expanded attribute for accessibility
             const isExpanded = menuBtn.classList.contains('active');
             menuBtn.setAttribute('aria-expanded', isExpanded);
         }
         
-        // Add click event to menu button
+        // Adding click event to menu button
         menuBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             toggleMenu();
         });
         
-        // Close menu when clicking on a nav link
+        // Closing menu when clicking on a nav link
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Close menu when clicking outside
+        // Closing menu when clicking outside
         document.addEventListener('click', function(event) {
             if (navList.classList.contains('active') && 
                 !event.target.closest('.nav-list') && 
@@ -152,14 +152,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Close menu on escape key
+        // Closing menu on escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && navList.classList.contains('active')) {
                 toggleMenu();
             }
         });
         
-        // Close menu when window is resized to desktop size
+        // Closing menu when window is resized to desktop size
         function handleResize() {
             if (window.innerWidth > 768 && navList.classList.contains('active')) {
                 toggleMenu();
