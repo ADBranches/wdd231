@@ -109,3 +109,61 @@ document.addEventListener("DOMContentLoaded", function() {
     
     lazyLoad();
 });
+
+// Hamburger menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navList = document.querySelector('.nav-list');
+    
+    if (menuBtn && navList) {
+        // Toggle menu function
+        function toggleMenu() {
+            navList.classList.toggle('active');
+            
+            // Toggle aria-expanded attribute for accessibility
+            const isExpanded = navList.classList.contains('active');
+            menuBtn.setAttribute('aria-expanded', isExpanded);
+        }
+        
+        // Add click event to menu button
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Close menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navList.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (navList.classList.contains('active') && 
+                !event.target.closest('.nav-list') && 
+                !event.target.closest('.menu-btn')) {
+                toggleMenu();
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && navList.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+        
+        // Close menu when window is resized to desktop size
+        function handleResize() {
+            if (window.innerWidth > 768 && navList.classList.contains('active')) {
+                toggleMenu();
+            }
+        }
+        
+        window.addEventListener('resize', handleResize);
+    }
+});

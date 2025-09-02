@@ -136,45 +136,39 @@ img.lazy.loaded {
 }
 
 
-/* Hamburger menu button - hidden by default */
+/* Hamburger menu button - hidden by default on desktop */
 .menu-btn {
-    display: none;
+    display: none; /* Hidden on desktop */
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
     z-index: 1001;
-    color: white;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
 }
 
-.menu-btn svg {
-    width: 24px;
-    height: 24px;
+.menu-btn img {
+    width: 32px !important;
+    height: 32px !important;
     transition: transform 0.3s ease;
-}
-
-.menu-btn.active svg {
-    transform: rotate(90deg);
 }
 
 /* Mobile navigation styles */
 @media (max-width: 768px) {
     .menu-btn {
-        display: block;
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
+        display: block; /* Only show on mobile */
     }
     
     .header {
-        flex-direction: column;
-        align-items: flex-start;
+        position: relative;
         padding: 1rem;
     }
     
     .header h1 {
-        margin-bottom: 1rem;
-        padding-right: 40px; /* Space for hamburger button */
+        padding-right: 50px; /* Space for hamburger button */
+        margin-bottom: 0; /* Remove default margin */
     }
     
     .nav-list {
@@ -204,6 +198,7 @@ img.lazy.loaded {
         padding: 1rem;
         border-bottom: 1px solid rgba(255,255,255,0.1);
         width: 100%;
+        display: block;
     }
     
     .nav-link:hover {
