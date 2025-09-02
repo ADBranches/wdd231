@@ -134,3 +134,79 @@ img.lazy {
 img.lazy.loaded {
     opacity: 1;
 }
+
+
+/* Hamburger menu button - hidden by default */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    color: white;
+}
+
+.menu-btn svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.menu-btn.active svg {
+    transform: rotate(90deg);
+}
+
+/* Mobile navigation styles */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+    
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    
+    .header h1 {
+        margin-bottom: 1rem;
+        padding-right: 40px; /* Space for hamburger button */
+    }
+    
+    .nav-list {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        padding: 0;
+        margin: 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .nav-list.active {
+        display: flex;
+    }
+    
+    .nav-item {
+        margin: 0;
+        width: 100%;
+    }
+    
+    .nav-link {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+    }
+    
+    .nav-link:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+}
