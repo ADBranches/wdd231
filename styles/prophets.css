@@ -41,6 +41,16 @@ main {
     margin: 0 auto;
 }
 
+.warning {
+    text-align: center;
+    padding: 15px;
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: 5px;
+    margin: 20px 0;
+    border-left: 4px solid #ffc107;
+}
+
 #cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
