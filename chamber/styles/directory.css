@@ -1,0 +1,163 @@
+/* View Toggle Buttons */
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+.view-toggle button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.view-toggle button:hover {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+.view-toggle button.active {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+/* Grid View Layout */
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.member-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.member-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.member-card-content {
+  padding: var(--spacing-lg);
+}
+
+.member-card h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-heading);
+}
+
+.member-card p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--medium-gray);
+}
+
+.member-card .phone,
+.member-card .website {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.member-card .membership-level {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: var(--spacing-sm);
+}
+
+.membership-level[data-level="1"] {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.membership-level[data-level="2"] {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.membership-level[data-level="3"] {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+/* List View Layout */
+.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.list-view .member-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--spacing-md);
+}
+
+.list-view .member-card img {
+  height: 100%;
+  border-bottom: none;
+  border-right: 3px solid var(--accent-color);
+}
+
+.list-view .member-card-content {
+  padding: var(--spacing-md);
+}
+
+/* Responsive Design for Directory */
+@media (max-width: 768px) {
+  .grid-view {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+  }
+  
+  .view-toggle {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .view-toggle button {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-view {
+    grid-template-columns: 1fr;
+  }
+  
+  .list-view .member-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .list-view .member-card img {
+    height: 150px;
+    border-right: none;
+    border-bottom: 3px solid var(--accent-color);
+  }
+  
+  .member-card img {
+    height: 180px;
+  }
+}

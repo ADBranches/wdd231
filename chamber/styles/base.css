@@ -1,0 +1,210 @@
+/* CSS Variables for consistent theming */
+:root {
+  /* Color Scheme */
+  --primary-color: #1a2a6c;
+  --secondary-color: #b21f1f;
+  --accent-color: #fdbb2d;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --light-text: #fff;
+  --light-gray: #e9ecef;
+  --medium-gray: #6c757d;
+  --border-color: #dee2e6;
+  
+  /* Typography */
+  --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Georgia', 'Times New Roman', serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Border radius */
+  --border-radius: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--light-text);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+header img {
+  border-radius: var(--border-radius);
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: var(--primary-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+#hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--light-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+}
+
+#primary-nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#primary-nav a {
+  color: var(--light-text);
+  text-decoration: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+#primary-nav a:hover,
+#primary-nav a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content Styles */
+main {
+  flex: 1;
+  padding: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  padding: var(--spacing-lg);
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+.contact-info h3 {
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-heading);
+}
+
+.contact-info p {
+  margin-bottom: var(--spacing-xs);
+}
+
+.development-info {
+  text-align: right;
+}
+
+.development-info p {
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.9rem;
+  color: var(--light-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  #hamburger-btn {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  #primary-nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    display: none;
+  }
+  
+  #primary-nav.show {
+    display: flex;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--spacing-lg);
+  }
+  
+  .development-info {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: var(--spacing-md);
+  }
+  
+  header, nav, footer {
+    padding: var(--spacing-sm);
+  }
+}
