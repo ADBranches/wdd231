@@ -4,33 +4,76 @@ let currentView = 'grid';
 
 console.log('directory.js loaded successfully');
 
-// Function to fetch member data from JSON file
-async function getMembersData() {
-    console.log('getMembersData() called');
+// Use hardcoded data instead of fetching
+function getMembersData() {
+    console.log('Using fallback data instead of fetching JSON');
     
-    try {
-        console.log('Attempting to fetch ./members.json');
-        const response = await fetch('./members.json');
-        
-        console.log('Response status:', response.status, response.statusText);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    // Your fallback data
+    return [
+        {
+            "name": "Kambale Enterprises",
+            "address": "123 Main Street, Kambale City",
+            "phone": "+243 999 888 777",
+            "url": "https://kambale-enterprises.com",
+            "imageurl": "https://placehold.co/300x200/1a2a6c/ffffff?text=Kambale+Enterprises",
+            "membershipLevel": 3,
+            "description": "Leading provider of technology solutions and consulting services"
+        },
+        {
+            "name": "Trovas Grocery Store",
+            "address": "456 Market Road, Kambale City",
+            "phone": "+243 999 777 666",
+            "url": "https://trovassupermarket.com",
+            "imageurl": "https://placehold.co/300x200/b21f1f/ffffff?text=Trovas+Grocery",
+            "membershipLevel": 2,
+            "description": "Your one-stop shop for fresh produce and household items"
+        },
+        {
+            "name": "Kambale Construction Ltd",
+            "address": "789 Builder's Avenue, Kambale City",
+            "phone": "+243 999 666 555",
+            "url": "https://kambaleconstruction.com",
+            "imageurl": "https://placehold.co/300x200/fdbb2d/000000?text=Kambale+Construction",
+            "membershipLevel": 3,
+            "description": "Quality construction services for residential and commercial projects"
+        },
+        {
+            "name": "Digital Solutions Africa",
+            "address": "321 Tech Street, Kambale City",
+            "phone": "+243 999 555 444",
+            "url": "https://digitalsolutions.africa",
+            "imageurl": "https://placehold.co/300x200/1a2a6c/ffffff?text=Digital+Solutions",
+            "membershipLevel": 2,
+            "description": "Digital marketing and web development services"
+        },
+        {
+            "name": "Kambale Health Clinic",
+            "address": "654 Healthcare Road, Kambale City",
+            "phone": "+243 999 444 333",
+            "url": "https://kambaleclinic.com",
+            "imageurl": "https://placehold.co/300x200/28a745/ffffff?text=Kambale+Clinic",
+            "membershipLevel": 1,
+            "description": "Comprehensive healthcare services for the community"
+        },
+        {
+            "name": "Green Fields Agriculture",
+            "address": "987 Farm Lane, Kambale City",
+            "phone": "+243 999 333 222",
+            "url": "https://greenfieldsagriculture.com",
+            "imageurl": "https://placehold.co/300x200/198754/ffffff?text=Green+Fields",
+            "membershipLevel": 2,
+            "description": "Sustainable farming and agricultural products"
+        },
+        {
+            "name": "Kambale Transport Services",
+            "address": "147 Transport Avenue, Kambale City",
+            "phone": "+243 999 222 111",
+            "url": "https://kambaletransport.com",
+            "imageurl": "https://placehold.co/300x200/6f42c1/ffffff?text=Kambale+Transport",
+            "membershipLevel": 1,
+            "description": "Reliable transportation and logistics solutions"
         }
-        
-        const data = await response.json();
-        console.log('Successfully parsed JSON data:', data);
-        
-        membersData = data.members;
-        console.log('Members data set:', membersData);
-        
-        return membersData;
-        
-    } catch (error) {
-        console.error('Error fetching member data:', error);
-        // Fallback to empty array if fetch fails
-        return [];
-    }
+    ];
 }
 
 // Function to display members based on view type
@@ -188,7 +231,7 @@ function setupViewToggle() {
 }
 
 // Function to initialize the directory page
-async function initDirectory() {
+function initDirectory() {
     console.log('initDirectory() called');
     
     try {
@@ -199,9 +242,9 @@ async function initDirectory() {
             console.log('Set loading message');
         }
         
-        // Fetch member data
+        // Get member data (using fallback)
         console.log('Calling getMembersData()...');
-        await getMembersData();
+        membersData = getMembersData();
         console.log('getMembersData() completed, membersData:', membersData);
         
         // Set up view toggle
