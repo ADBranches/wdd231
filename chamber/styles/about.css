@@ -1,0 +1,328 @@
+/* About Page Styles */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+.about-container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xl);
+    font-size: 2.2rem;
+}
+
+/* Mission Section */
+.mission {
+    margin-bottom: var(--spacing-xl);
+}
+
+.mission-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-top: var(--spacing-lg);
+}
+
+.mission-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.mission-image img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+}
+
+/* History Timeline */
+.history {
+    margin-bottom: var(--spacing-xl);
+}
+
+.timeline {
+    margin-top: var(--spacing-lg);
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent-color);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.timeline-year {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-right: var(--spacing-lg);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-content {
+    background: var(--light-gray);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    flex: 1;
+    margin-top: var(--spacing-sm);
+}
+
+.timeline-content h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Leadership Section */
+.leadership {
+    margin-bottom: var(--spacing-xl);
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.board-member {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+}
+
+.board-member:hover {
+    transform: translateY(-5px);
+}
+
+.board-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--spacing-md);
+    border: 4px solid var(--accent-color);
+}
+
+.board-member h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.position {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: var(--spacing-xs);
+}
+
+.company {
+    font-style: italic;
+    margin-bottom: var(--spacing-xs);
+}
+
+.tenure {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+}
+
+/* Staff Section */
+.staff {
+    margin-bottom: var(--spacing-xl);
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.staff-member {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.staff-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--spacing-md);
+    border: 3px solid var(--primary-color);
+}
+
+.staff-member h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.staff-member .email {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+}
+
+/* Values Section */
+.values {
+    margin-bottom: var(--spacing-xl);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.value-item {
+    padding: var(--spacing-lg);
+    background: white;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 2px solid var(--light-gray);
+    transition: border-color 0.3s ease;
+}
+
+.value-item:hover {
+    border-color: var(--accent-color);
+}
+
+.value-item h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Contact Section */
+.contact {
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.contact-info h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.contact-info h4:first-child {
+    margin-top: 0;
+}
+
+.contact-info p {
+    margin-bottom: var(--spacing-xs);
+}
+
+.map-placeholder {
+    text-align: center;
+}
+
+.map-placeholder img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-sm);
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .mission-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline::before {
+        left: 25px;
+    }
+    
+    .timeline-year {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: var(--spacing-md);
+    }
+    
+    .board-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .staff-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .timeline-year {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .timeline::before {
+        left: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container h2 {
+        font-size: 1.8rem;
+    }
+    
+    .board-grid,
+    .staff-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .board-member,
+    .staff-member {
+        padding: var(--spacing-md);
+    }
+    
+    .timeline::before {
+        left: 23px;
+    }
+    
+    .timeline-year {
+        width: 46px;
+        height: 46px;
+    }
+}

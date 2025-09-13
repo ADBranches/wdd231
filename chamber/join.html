@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Kambale Chamber of Commerce - Become a member and grow your business with our community">
+    <meta name="author" content="Edwin Kambale">
+    
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Join Us | Kambale Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://adbranches.github.io/wdd231/chamber/images/og-image.jpg">
+    <meta property="og:url" content="https://adbranches.github.io/wdd231/chamber/join.html">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/join.css">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="images/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#1a2a6c">
+    <meta name="theme-color" content="#1a2a6c">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Join Us | Kambale Chamber of Commerce</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div id="logo-container"></div>
+            <h1>Kambale Chamber of Commerce</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <button id="hamburger-btn">☰</button>
+        <ul id="primary-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html" class="active">Join</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="join-container">
+            <h2>Join the Kambale Chamber of Commerce</h2>
+            
+            <!-- Membership Benefits -->
+            <section class="benefits card">
+                <h3>Why Join Our Chamber?</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h4>📈 Business Growth</h4>
+                        <p>Connect with potential clients and partners through our networking events and business directory.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>🎯 Marketing Exposure</h4>
+                        <p>Increase your visibility with featured listings, event sponsorships, and promotional opportunities.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>💼 Advocacy</h4>
+                        <p>We represent your interests at local and regional levels, advocating for business-friendly policies.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>📚 Resources</h4>
+                        <p>Access exclusive business resources, workshops, and educational programs to help your business thrive.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Membership Levels -->
+            <section class="membership-levels card">
+                <h3>Membership Levels</h3>
+                <div class="levels-grid">
+                    <div class="level-item">
+                        <h4>NP Membership (Non-Profit)</h4>
+                        <p class="price">Free</p>
+                        <ul>
+                            <li>Basic business listing in directory</li>
+                            <li>Access to monthly newsletters</li>
+                            <li>Invitation to public events</li>
+                            <li>For non-profit organizations only</li>
+                        </ul>
+                    </div>
+                    <div class="level-item">
+                        <h4>Bronze Membership</h4>
+                        <p class="price">$200/year</p>
+                        <ul>
+                            <li>Enhanced business listing</li>
+                            <li>Access to business workshops</li>
+                            <li>Networking event invitations</li>
+                            <li>Basic promotional opportunities</li>
+                        </ul>
+                    </div>
+                    <div class="level-item">
+                        <h4>Silver Membership</h4>
+                        <p class="price">$400/year</p>
+                        <ul>
+                            <li>Featured business listing</li>
+                            <li>Priority event registration</li>
+                            <li>Business training discounts</li>
+                            <li>Advertising opportunities</li>
+                            <li>Committee participation</li>
+                        </ul>
+                    </div>
+                    <div class="level-item">
+                        <h4>Gold Membership</h4>
+                        <p class="price">$600/year</p>
+                        <ul>
+                            <li>Premium featured listing</li>
+                            <li>Event sponsorship opportunities</li>
+                            <li>Leadership recognition</li>
+                            <li>Exclusive Gold member events</li>
+                            <li>Board participation eligibility</li>
+                            <li>Complimentary event tickets</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Application Form -->
+            <section class="application-form card">
+                <h3>Membership Application</h3>
+                <form id="membership-form">
+                    <div class="form-section">
+                        <h4>Personal Information</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Title/Position</label>
+                                <input type="text" id="title" name="title" pattern="[A-Za-z\s\-]{7,}">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Mobile Phone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Business Information</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="businessName">Business Name *</label>
+                                <input type="text" id="businessName" name="businessName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="businessType">Business Type</label>
+                                <select id="businessType" name="businessType">
+                                    <option value="">Select Business Type</option>
+                                    <option value="retail">Retail</option>
+                                    <option value="service">Service</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="membershipLevel">Membership Level *</label>
+                                <select id="membershipLevel" name="membershipLevel" required>
+                                    <option value="">Select Level</option>
+                                    <option value="np">NP Membership (Non-Profit) - Free</option>
+                                    <option value="bronze">Bronze Membership - $200/year</option>
+                                    <option value="silver">Silver Membership - $400/year</option>
+                                    <option value="gold">Gold Membership - $600/year</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="businessDescription">Business Description</label>
+                                <textarea id="businessDescription" name="businessDescription" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Additional Information</h4>
+                        <div class="form-group">
+                            <label for="timestamp">Form Submission Date/Time</label>
+                            <input type="text" id="timestamp" name="timestamp" readonly>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </section>
+            
+            <!-- Contact Information -->
+            <section class="contact-info card">
+                <h3>Need Help?</h3>
+                <p>Our membership team is here to assist you. Contact us:</p>
+                <div class="contact-details">
+                    <p>📧 <strong>Email:</strong> membership@kambalecc.org</p>
+                    <p>📞 <strong>Phone:</strong> +243 999 888 777</p>
+                    <p>🏢 <strong>Address:</strong> 123 Commerce Street, Kambale City</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Kambale Chamber of Commerce</h3>
+                <p>123 Commerce Street, Kambale City</p>
+                <p>Email: info@kambalecc.org</p>
+                <p>Phone: +243 999 888 777</p>
+            </div>
+            
+            <div class="development-info">
+                <p>&copy; <span id="currentyear"></span> Kambale Chamber of Commerce</p>
+                <p>Edwin Kambale | WDD 231</p>
+                <p>Last Modification: <span id="lastmodified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/join.js"></script>
+</body>
+</html>
