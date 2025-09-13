@@ -1,0 +1,190 @@
+/* Discover Page Styles */
+.discover-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+.discover-container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xl);
+    font-size: 2.2rem;
+}
+
+/* Welcome Message */
+.welcome-message {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.welcome-message h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Demographics Section */
+.demographics {
+    margin-bottom: var(--spacing-xl);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: var(--spacing-xs) 0;
+}
+
+/* Attractions Section */
+.attractions {
+    margin-bottom: var(--spacing-xl);
+}
+
+.attractions h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.attraction-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.attraction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.attraction-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.attraction-card figcaption {
+    padding: var(--spacing-md);
+}
+
+.attraction-card h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Business Climate Section */
+.business-climate {
+    margin-bottom: var(--spacing-xl);
+}
+
+.climate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.climate-item h4 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.climate-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.climate-item li {
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.climate-item li:before {
+    content: "✓ ";
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Events Section */
+.events {
+    margin-bottom: var(--spacing-xl);
+}
+
+.events-list {
+    margin-top: var(--spacing-lg);
+}
+
+.event-item {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-color);
+}
+
+.event-date {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin: var(--spacing-xs) 0;
+}
+
+/* Visit Message */
+#visit-message {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .discover-container {
+        padding: var(--spacing-md);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .attractions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .climate-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .discover-container h2 {
+        font-size: 1.8rem;
+    }
+}
