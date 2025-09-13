@@ -2,7 +2,7 @@
 let membersData = [];
 let currentView = 'grid';
 
-// Use hardcoded data instead of fetching
+// Using hardcoded data instead of fetching
 function getMembersData() {
     return [
         {
@@ -71,7 +71,7 @@ function getMembersData() {
     ];
 }
 
-// Function to display members based on view type
+// display members based on view type
 function displayMembers(viewType = 'grid') {
     const directoryContainer = document.getElementById('directory');
     
@@ -94,7 +94,7 @@ function displayMembers(viewType = 'grid') {
     });
 }
 
-// Function to create a member card element
+//  create a member card element
 function createMemberCard(member, viewType) {
     const card = document.createElement('article');
     card.className = 'member-card';
@@ -137,7 +137,7 @@ function createMemberCard(member, viewType) {
     return card;
 }
 
-// Function to update button active states
+// update button active states
 function updateButtonStates(activeView) {
     const gridBtn = document.getElementById('grid-btn');
     const listBtn = document.getElementById('list-btn');
@@ -153,7 +153,7 @@ function updateButtonStates(activeView) {
     }
 }
 
-// Function to set up view toggle functionality
+// set up view toggle functionality
 function setupViewToggle() {
     const gridBtn = document.getElementById('grid-btn');
     const listBtn = document.getElementById('list-btn');
@@ -169,11 +169,11 @@ function setupViewToggle() {
             if (currentView !== 'list') {
                 displayMembers('list');
             }
-        });
+        }); 
     }
 }
 
-// Function to initialize the directory page
+//initialize the directory page
 function initDirectory() {
     const directoryContainer = document.getElementById('directory');
     if (directoryContainer) {

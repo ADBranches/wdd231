@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Kambale Chamber Favicons</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .canvas-container { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        canvas { border: 1px solid #ccc; margin: 5px; }
+        button { padding: 10px 15px; margin: 5px; background: #1a2a6c; color: white; border: none; cursor: pointer; }
+        .download-all { background: #b21f1f; }
+    </style>
+</head>
+<body>
+    <h1>Generate Kambale Chamber Favicons</h1>
+    <p>Click each canvas to download the individual icon, or use the "Download All" button.</p>
+    
+    <div class="canvas-container">
+        <div>
+            <p>favicon.ico (32×32) - Convert PNG to ICO online</p>
+            <canvas id="favicon32" width="32" height="32"></canvas>
+        </div>
+        <div>
+            <p>favicon-16x16.png</p>
+            <canvas id="icon16" width="16" height="16"></canvas>
+        </div>
+        <div>
+            <p>favicon-32x32.png</p>
+            <canvas id="icon32" width="32" height="32"></canvas>
+        </div>
+        <div>
+            <p>apple-touch-icon.png (180×180)</p>
+            <canvas id="icon180" width="180" height="180"></canvas>
+        </div>
+        <div>
+            <p>android-chrome-192x192.png</p>
+            <canvas id="icon192" width="192" height="192"></canvas>
+        </div>
+        <div>
+            <p>android-chrome-512x512.png</p>
+            <canvas id="icon512" width="512" height="512"></canvas>
+        </div>
+        <div>
+            <p>mstile-150x150.png</p>
+            <canvas id="icon150" width="150" height="150"></canvas>
+        </div>
+    </div>
+    
+    <button onclick="downloadAll()" class="download-all">Download All PNG Files</button>
+    <p>After downloading, convert the 32×32 PNG to ICO format using: <a href="https://convertio.co/png-ico/" target="_blank">convertio.co</a></p>
+
+    <script>
+        // Generate all icons
+        function generateIcons() {
+            const sizes = [
+                { id: 'favicon32', size: 32, name: 'favicon-32x32' },
+                { id: 'icon16', size: 16, name: 'favicon-16x16' },
+                { id: 'icon32', size: 32, name: 'favicon-32x32' },
+                { id: 'icon180', size: 180, name: 'apple-touch-icon' },
+                { id: 'icon192', size: 192, name: 'android-chrome-192x192' },
+                { id: 'icon512', size: 512, name: 'android-chrome-512x512' },
+                { id: 'icon150', size: 150, name: 'mstile-150x150' }
+            ];
+            
+            sizes.forEach(item => {
+                const canvas = document.getElementById(item.id);
+                const ctx = canvas.getContext('2d');
+                
+                // Background
+                ctx.fillStyle = '#1a2a6c'; // Primary blue
+                ctx.fillRect(0, 0, item.size, item.size);
+                
+                // Text (only for larger icons)
+                if (item.size >= 32) {
+                    ctx.fillStyle = '#ffffff';
+                    const fontSize = Math.max(12, item.size / 3);
+                    ctx.font = `bold ${fontSize}px Arial`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    
+                    if (item.size <= 32) {
+                        ctx.fillText('KCC', item.size / 2, item.size / 2);
+                    } else {
+                        ctx.fillText('KAMBALE', item.size / 2, item.size / 2 - fontSize / 3);
+                        ctx.fillText('CHAMBER', item.size / 2, item.size / 2 + fontSize / 3);
+                    }
+                }
+                
+                // Make canvas clickable for download
+                canvas.style.cursor = 'pointer';
+                canvas.title = `Click to download ${item.name}.png`;
+                canvas.onclick = () => downloadIcon(canvas, `${item.name}.png`);
+            });
+        }
+        
+        function downloadIcon(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadAll() {
+            const canvases = document.querySelectorAll('canvas');
+            canvases.forEach((canvas, index) => {
+                setTimeout(() => {
+                    const names = [
+                        'favicon-32x32.png', 'favicon-16x16.png', 'favicon-32x32.png',
+                        'apple-touch-icon.png', 'android-chrome-192x192.png',
+                        'android-chrome-512x512.png', 'mstile-150x150.png'
+                    ];
+                    downloadIcon(canvas, names[index]);
+                }, index * 300);
+            });
+        }
+        
+        window.onload = generateIcons;
+    </script>
+</body>
+</html>

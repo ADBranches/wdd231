@@ -17,15 +17,50 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/directory.css">
     
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Favicon Implementation -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="images/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#1a2a6c">
+    <meta name="theme-color" content="#1a2a6c">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- GOOGLE FONT -->
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <title>Business Directory | Kambale Chamber of Commerce</title>
+    
+    <style>
+        /* Style for programmatic logo */
+        .programmatic-logo {
+            border: 2px solid #1a2a6c;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #1a2a6c, #2c3e90);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <img src="images/logo.svg" alt="Kambale Chamber of Commerce Logo" width="100" height="100">
+            <!-- We'll add the logo dynamically with JavaScript to avoid onerror issues -->
+            <div id="logo-container"></div>
             <h1>Kambale Chamber of Commerce</h1>
         </div>
     </header>
@@ -33,11 +68,11 @@
     <nav>
         <button id="hamburger-btn">☰</button>
         <ul id="primary-nav">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#">Discover</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="discover.html">Discover</a></li>
             <li><a href="directory.html" class="active">Directory</a></li>
-            <li><a href="#">Join</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
     
@@ -73,11 +108,119 @@
     <!-- JavaScript Files -->
     <script src="scripts/main.js"></script>
     <script src="scripts/directory.js"></script>
+    
     <script>
-        // Initialize directory when DOM is loaded
+        // Function to handle logo loading with proper error handling
+        function loadLogo() {
+            const logoContainer = document.getElementById('logo-container');
+            if (!logoContainer) return;
+            
+            const logoImg = new Image();
+            logoImg.src = 'images/logo.svg';
+            logoImg.alt = 'Kambale Chamber of Commerce Logo';
+            logoImg.width = 100;
+            logoImg.height = 100;
+            
+            logoImg.onload = function() {
+                console.log('Logo loaded successfully');
+                logoContainer.appendChild(logoImg);
+            };
+            
+            logoImg.onerror = function() {
+                console.log('Custom logo not found. Using programmatic logo instead.');
+                createProgrammaticLogo(logoContainer);
+            };
+            
+            // timeout in case the image never loads or errors
+            setTimeout(function() {
+                if (!logoImg.complete || logoImg.naturalWidth === 0) {
+                    console.log('Logo load timeout. Using programmatic logo instead.');
+                    if (logoContainer.childNodes.length === 0) {
+                        createProgrammaticLogo(logoContainer);
+                    }
+                }
+            }, 2000);
+        }
+        
+        // Creating a programmatic logo as fallback
+        function createProgrammaticLogo(container) {
+            const programmaticLogo = document.createElement('div');
+            programmaticLogo.className = 'programmatic-logo';
+            programmaticLogo.textContent = 'KCC';
+            programmaticLogo.title = 'Kambale Chamber of Commerce - Custom logo coming soon';
+            
+            // Clearing container and adding the programmatic logo
+            container.innerHTML = '';
+            container.appendChild(programmaticLogo);
+            
+            // Adding retry functionality on double click (for development)
+            programmaticLogo.addEventListener('dblclick', function() {
+                console.log('Attempting to reload logo');
+                loadLogo();
+            });
+        }
+        
+        // Initializing when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Loading logo with proper error handling
+            loadLogo();
+            
+            // Set current year and last modified date
+            document.getElementById('currentyear').textContent = new Date().getFullYear();
+            document.getElementById('lastmodified').textContent = document.lastModified;
+            
+            // Hamburger menu functionality
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const primaryNav = document.getElementById('primary-nav');
+            
+            if (hamburgerBtn && primaryNav) {
+                hamburgerBtn.addEventListener('click', function() {
+                    primaryNav.classList.toggle('show');
+                });
+            }
+            
+            // View toggle functionality
+            const gridBtn = document.getElementById('grid-btn');
+            const listBtn = document.getElementById('list-btn');
+            const directory = document.getElementById('directory');
+            
+            if (gridBtn && listBtn && directory) {
+                gridBtn.addEventListener('click', function() {
+                    directory.className = 'grid-view';
+                    gridBtn.classList.add('active');
+                    listBtn.classList.remove('active');
+                });
+                
+                listBtn.addEventListener('click', function() {
+                    directory.className = 'list-view';
+                    listBtn.classList.add('active');
+                    gridBtn.classList.remove('active');
+                });
+            }
+            
+            // Initialize directory if function exists
             if (typeof initDirectory === 'function') {
                 initDirectory();
+            }
+        });
+        
+        // Favicon test - checking if favicon loads correctly
+        document.addEventListener('DOMContentLoaded', function() {
+            const favicon = document.querySelector('link[rel="icon"]');
+            if (favicon) {
+                console.log('Favicon found:', favicon.href);
+                
+                // Testing if favicon loads
+                const testImage = new Image();
+                testImage.onload = function() {
+                    console.log('Favicon loaded successfully');
+                };
+                testImage.onerror = function() {
+                    console.warn('Favicon failed to load:', favicon.href);
+                };
+                testImage.src = favicon.href;
+            } else {
+                console.warn('No favicon found in the document');
             }
         });
     </script>

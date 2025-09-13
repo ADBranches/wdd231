@@ -1,0 +1,21 @@
+{
+  "name": "Kambale Chamber of Commerce",
+  "short_name": "Kambale CC",
+  "description": "Business directory for Kambale Chamber of Commerce",
+  "start_url": "/wdd231/chamber/directory.html",
+  "display": "standalone",
+  "background_color": "#1a2a6c",
+  "theme_color": "#1a2a6c",
+  "icons": [
+    {
+      "src": "images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
