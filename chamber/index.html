@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kambale Chamber of Commerce - Promoting local businesses and economic development in our community">
+    <meta name="author" content="Edwin Kambale">
+    
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Kambale Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://adbranches.github.io/wdd231/chamber/images/og-image.jpg">
+    <meta property="og:url" content="https://adbranches.github.io/wdd231/chamber/index.html">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/home.css">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="images/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#1a2a6c">
+    <meta name="theme-color" content="#1a2a6c">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Home | Kambale Chamber of Commerce</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div id="logo-container"></div>
+            <h1>Kambale Chamber of Commerce</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <button id="hamburger-btn">☰</button>
+        <ul id="primary-nav">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <picture>
+                <source media="(max-width: 600px)" srcset="https://placehold.co/600x400/1a2a6c/ffffff?text=Kambale+City">
+                <source media="(max-width: 900px)" srcset="https://placehold.co/900x400/1a2a6c/ffffff?text=Kambale+City">
+                <img class="hero-image" src="https://placehold.co/1200x400/1a2a6c/ffffff?text=Welcome+to+Kambale+City" alt="Kambale City Skyline">
+            </picture>
+            <div class="hero-content">
+                <h2>Welcome to Kambale Chamber of Commerce</h2>
+                <a href="join.html" class="cta-button">Join Us Today</a>
+            </div>
+        </section>
+        
+        <!-- Current Events/Weather Section -->
+        <section class="section">
+            <h2>What's Happening</h2>
+            <div class="info-cards">
+                <div class="card">
+                    <h3>Upcoming Events</h3>
+                    <ul>
+                        <li><strong>Business Networking Mixer</strong> - June 15, 2023</li>
+                        <li><strong>Economic Development Forum</strong> - June 22, 2023</li>
+                        <li><strong>Small Business Workshop</strong> - July 5, 2023</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Current Weather</h3>
+                    <div id="weather">
+                        <p>Loading weather information...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Company Spotlights -->
+        <section class="section">
+            <h2>Member Spotlights</h2>
+            <div class="spotlights">
+                <div class="spotlight">
+                    <img src="https://placehold.co/100x100/1a2a6c/ffffff?text=KE" alt="Kambale Enterprises">
+                    <h3>Kambale Enterprises</h3>
+                    <p>Leading provider of technology solutions</p>
+                    <hr>
+                    <p>info@kambale-enterprises.com<br>+243 999 888 777</p>
+                </div>
+                
+                <div class="spotlight">
+                    <img src="https://placehold.co/100x100/b21f1f/ffffff?text=TG" alt="Trovas Grocery">
+                    <h3>Trovas Grocery Store</h3>
+                    <p>Your one-stop shop for fresh produce</p>
+                    <hr>
+                    <p>contact@trovassupermarket.com<br>+243 999 777 666</p>
+                </div>
+                
+                <div class="spotlight">
+                    <img src="https://placehold.co/100x100/fdbb2d/000000?text=KC" alt="Kambale Construction">
+                    <h3>Kambale Construction Ltd</h3>
+                    <p>Quality construction services</p>
+                    <hr>
+                    <p>info@kambaleconstruction.com<br>+243 999 666 555</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Kambale Chamber of Commerce</h3>
+                <p>123 Commerce Street, Kambale City</p>
+                <p>Email: info@kambalecc.org</p>
+                <p>Phone: +243 999 888 777</p>
+            </div>
+            
+            <div class="development-info">
+                <p>&copy; <span id="currentyear"></span> Kambale Chamber of Commerce</p>
+                <p>Edwin Kambale | WDD 231</p>
+                <p>Last Modification: <span id="lastmodified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/home.js"></script>
+</body>
+</html>

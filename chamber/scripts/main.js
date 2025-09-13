@@ -48,7 +48,8 @@ function setActiveNavLink() {
         
         // Adding active class to current page link
         if (linkPage === currentPage || 
-            (currentPage === '' && linkPage === '../index.html') ||
+            (currentPage === '' && linkPage === 'index.html') ||
+            (currentPage === 'index.html' && linkPage === 'index.html') ||
             (currentPage === 'directory.html' && linkPage === 'directory.html')) {
             link.classList.add('active');
         }
@@ -70,10 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
             !primaryNav.contains(e.target) && 
             e.target !== hamburgerBtn) {
             primaryNav.classList.remove('show');
-            hamburgerBtn.textContent = '☰';
+            if (hamburgerBtn) {
+                hamburgerBtn.textContent = '☰';
+            }
         }
     });
 });
+
+// Make functions available globally
+window.updateFooterDates = updateFooterDates;
+window.setupMobileNavigation = setupMobileNavigation;
+window.setActiveNavLink = setActiveNavLink;
 
 // Exporting functions for use in other modules (if needed)
 if (typeof module !== 'undefined' && module.exports) {
