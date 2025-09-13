@@ -1,12 +1,10 @@
-// Function to update footer with current year and last modified date
+// updating footer with current year and last modified date
 function updateFooterDates() {
-    // Get current year
     const currentYear = new Date().getFullYear();
     
-    // Get last modified date
     const lastModified = document.lastModified;
     
-    // Update the elements in the DOM
+    // Updating the elements in the DOM
     const currentYearElement = document.getElementById('currentyear');
     const lastModifiedElement = document.getElementById('lastmodified');
     
@@ -19,7 +17,7 @@ function updateFooterDates() {
     }
 }
 
-// Function to handle mobile navigation
+// handling mobile navigation
 function setupMobileNavigation() {
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const primaryNav = document.getElementById('primary-nav');
@@ -28,7 +26,7 @@ function setupMobileNavigation() {
         hamburgerBtn.addEventListener('click', () => {
             primaryNav.classList.toggle('show');
             
-            // Update hamburger button icon
+            // Updating hamburger button icon
             if (primaryNav.classList.contains('show')) {
                 hamburgerBtn.textContent = '✕';
             } else {
@@ -38,17 +36,17 @@ function setupMobileNavigation() {
     }
 }
 
-// Function to set active navigation link based on current page
+// setting active navigation link based on current page
 function setActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop();
     const navLinks = document.querySelectorAll('#primary-nav a');
     
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
-        // Remove active class from all links
+        // Removing active class from all links
         link.classList.remove('active');
         
-        // Add active class to current page link
+        // Adding active class to current page link
         if (linkPage === currentPage || 
             (currentPage === '' && linkPage === '../index.html') ||
             (currentPage === 'directory.html' && linkPage === 'directory.html')) {
@@ -57,13 +55,13 @@ function setActiveNavLink() {
     });
 }
 
-// Initialize when DOM is fully loaded
+// Initializng when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     updateFooterDates();
     setupMobileNavigation();
     setActiveNavLink();
     
-    // Close mobile navigation when clicking outside
+    // Closing mobile navigation when clicking outside
     document.addEventListener('click', (e) => {
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const primaryNav = document.getElementById('primary-nav');
@@ -77,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Export functions for use in other modules (if needed)
+// Exporting functions for use in other modules (if needed)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { updateFooterDates, setupMobileNavigation, setActiveNavLink };
 }
