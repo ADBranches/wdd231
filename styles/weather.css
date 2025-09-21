@@ -1,0 +1,46 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff; /* A light blue background */
+}
+
+main {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #2c5282; /* A dark blue color */
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    font-size: 1.2rem;
+    color: #4a5568;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    text-transform: capitalize; /* Ensures the description is capitalized */
+}
+
+footer {
+    margin-top: 2rem;
+    color: #718096;
+}

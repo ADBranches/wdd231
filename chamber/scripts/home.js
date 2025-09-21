@@ -41,42 +41,98 @@ function createProgrammaticLogo(container) {
     container.innerHTML = '';
     container.appendChild(programmaticLogo);
     
-    // Adding retry functionality on double click (for development)
+    // Adding retry functionality on double click (during development)
     programmaticLogo.addEventListener('dblclick', function() {
         console.log('Attempting to reload logo');
         loadLogo();
     });
 }
 
-// Simple weather display (mock data)
-function displayWeather() {
+//  the displayWeather 
+async function displayWeather() {
     const weatherElement = document.getElementById('weather');
-    if (weatherElement) {
-        weatherElement.innerHTML = `
-            <p><strong>Current Conditions:</strong> Sunny</p>
-            <p><strong>Temperature:</strong> 28°C / 82°F</p>
-            <p><strong>Humidity:</strong> 45%</p>
-            <p><strong>Forecast:</strong> Clear skies throughout the week</p>
-        `;
+    if (!weatherElement) return;
+
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=YOUR_LAT&lon=YOUR_LON&units=imperial&appid=WEATHER_API_KEY`;
+
+    try {
+        const response = await fetch(url);
+        if (response.ok) {
+            const data = await response.json();
+            // Updating current weather
+            const current = data.list[0];
+            weatherElement.innerHTML = `
+                <p><strong>Current:</strong> ${current.main.temp.toFixed(0)}°F, ${current.weather[0].description}</p>
+                <p><strong>Forecast:</strong> 
+                    Today: ${data.list[0].main.temp.toFixed(0)}°F,
+                    Tomorrow: ${data.list[8].main.temp.toFixed(0)}°F,
+                    ${data.list[16].main.temp.toFixed(0)}°F
+                </p>
+            `;
+        } else {
+            throw Error(await response.text());
+        }
+    } catch (error) {
+        console.error(error);
+        weatherElement.innerHTML = `<p>Error loading weather data.</p>`;
+    }
+}
+//  spotlights
+async function displaySpotlights() {
+    const spotlightsContainer = document.querySelector('.spotlights');
+    if (!spotlightsContainer) return;
+
+    try {
+        const response = await fetch('data/members.json');
+        const members = await response.json();
+
+        // Filter for Gold (3) and Silver (2) members
+        const qualifiedMembers = members.filter(member => member.membershipLevel >= 2);
+
+        // Randomly select 2 or 3 members
+        const selectedMembers = [];
+        const count = Math.min(Math.floor(Math.random() * 2) + 2, qualifiedMembers.length); // Get 2 or 3
+        const indices = new Set();
+        while(indices.size < count) {
+            indices.add(Math.floor(Math.random() * qualifiedMembers.length));
+        }
+        indices.forEach(index => selectedMembers.push(qualifiedMembers[index]));
+
+        // Generating HTML for each spotlight
+        spotlightsContainer.innerHTML = ''; 
+        selectedMembers.forEach(member => {
+            const spotlightDiv = document.createElement('div');
+            spotlightDiv.className = 'spotlight';
+            spotlightDiv.innerHTML = `
+                <img src="images/directory/${member.imageFileName}" alt="${member.name} Logo" loading="lazy">
+                <h3>${member.name}</h3>
+                <p>${member.otherInfo || ''}</p>
+                <hr>
+                <p>${member.address}<br>${member.phone}<br><a href="${member.websiteURL}" target="_blank">Website</a></p>
+            `;
+            spotlightsContainer.appendChild(spotlightDiv);
+        });
+
+    } catch (error) {
+        console.error('Error fetching or parsing members data:', error);
     }
 }
 
+
 // Initializing when DOM is loaded
 function initHome() {
-    // Loading logo with proper error handling
     loadLogo();
-    
-    // Display weather information
-    displayWeather();
+    displayWeather(); 
+    displaySpotlights(); // Calling the new JSON function
 }
 
-// Make functions available globally
+// Making functions available globally
 window.loadLogo = loadLogo;
 window.createProgrammaticLogo = createProgrammaticLogo;
 window.displayWeather = displayWeather;
 window.initHome = initHome;
 
-// Initialize when DOM is fully loaded
+// Initializing when DOM is fully loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initHome);
 } else {
