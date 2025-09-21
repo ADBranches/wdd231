@@ -47,20 +47,16 @@ function createProgrammaticLogo(container) {
         loadLogo();
     });
 }
-// const url = `https://api.openweathermap.org/data/2.5/forecast?lat=YOUR_LAT&lon=YOUR_LON&units=imperial&appid=WEATHER_API_KEY`;
-
+// const url = `https://api.openweathermap.org/data/2.5/forecast?lat=32°39'05"E&lon=0°23'08"N&units=imperial&appid=WEATHER_API_KEY`;
+// 0°23'08"N 32°39'05"E
 //  the displayWeather 
 async function displayWeather() {
     const weatherElement = document.getElementById('weather');
     if (!weatherElement) return;
 
-    // Use a CORS proxy for development on localhost
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=YOUR_LAT&lon=YOUR_LON&units=imperial&appid=WEATHER_API_KEY`;
-    const url = proxyUrl + apiUrl;
-
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=32°39'05"E&lon=0°23'08"N&units=imperial&appid=${import.meta.env.VITE_WEATHER_API_KEY}`;
     try {
-        const response = await fetch(url);
+        const response = await fetch(apiUrl);
         if (response.ok) {
             const data = await response.json();
             console.log(data); // Check the data structure in the console
@@ -90,14 +86,17 @@ async function displaySpotlights() {
 
     try {
         const response = await fetch('data/members.json');
-        const members = await response.json();
+        const data = await response.json();
+        
+        // Accessing the members array from the JSON structure
+        const members = data.members;
 
-        // Filter for Gold (3) and Silver (2) members
+        // Filtering for Gold (3) and Silver (2) members
         const qualifiedMembers = members.filter(member => member.membershipLevel >= 2);
 
-        // Randomly select 2 or 3 members
+        // Randomly selecting 2 - 3 members
         const selectedMembers = [];
-        const count = Math.min(Math.floor(Math.random() * 2) + 2, qualifiedMembers.length); // Get 2 or 3
+        const count = Math.min(Math.floor(Math.random() * 2) + 2, qualifiedMembers.length);
         const indices = new Set();
         while(indices.size < count) {
             indices.add(Math.floor(Math.random() * qualifiedMembers.length));
@@ -110,11 +109,11 @@ async function displaySpotlights() {
             const spotlightDiv = document.createElement('div');
             spotlightDiv.className = 'spotlight';
             spotlightDiv.innerHTML = `
-                <img src="images/directory/${member.imageFileName}" alt="${member.name} Logo" loading="lazy">
+                <img src="${member.imageurl}" alt="${member.name} Logo" loading="lazy">
                 <h3>${member.name}</h3>
-                <p>${member.otherInfo || ''}</p>
+                <p>${member.description || ''}</p>
                 <hr>
-                <p>${member.address}<br>${member.phone}<br><a href="${member.websiteURL}" target="_blank">Website</a></p>
+                <p>${member.address}<br>${member.phone}<br><a href="${member.url}" target="_blank">Website</a></p>
             `;
             spotlightsContainer.appendChild(spotlightDiv);
         });
