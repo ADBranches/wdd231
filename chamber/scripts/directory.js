@@ -2,8 +2,28 @@
 let membersData = [];
 let currentView = 'grid';
 
-// Using hardcoded data instead of fetching
-function getMembersData() {
+// Async function to fetch members data
+async function fetchMembersData() {
+    try {
+        const response = await fetch('../data/members.json');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        return data.members || data; // Handle both {members: []} and direct array
+    } catch (error) {
+        console.error('Error fetching member data:', error);
+        
+        // Fallback to hardcoded data if fetch fails
+        console.log('Using fallback member data');
+        return getFallbackMembersData();
+    }
+}
+
+// Use hardcoded data as fallback
+function getFallbackMembersData() {
     return [
         {
             "name": "Kambale Enterprises",
@@ -71,7 +91,7 @@ function getMembersData() {
     ];
 }
 
-// display members based on view type
+// Function to display members based on view type
 function displayMembers(viewType = 'grid') {
     const directoryContainer = document.getElementById('directory');
     
@@ -94,15 +114,15 @@ function displayMembers(viewType = 'grid') {
     });
 }
 
-//  create a member card element
+// Function to create a member card element
 function createMemberCard(member, viewType) {
     const card = document.createElement('article');
     card.className = 'member-card';
     
     let membershipText = '';
     switch(member.membershipLevel) {
-        case 1: membershipText = 'Member'; break;
-        case 2: membershipText = 'Silver Member'; break;
+        case 1: membershipText = 'NP Member'; break;
+        case 2: membershipText = 'Bronze Member'; break;
         case 3: membershipText = 'Gold Member'; break;
         default: membershipText = 'Member';
     }
@@ -121,7 +141,6 @@ function createMemberCard(member, viewType) {
         `;
     } else {
         card.innerHTML = `
-            <img src="${member.imageurl}" alt="${member.name}" loading="lazy" width="100" height="100">
             <div class="member-card-content">
                 <h3>${member.name}</h3>
                 <p class="address">${member.address}</p>
@@ -137,7 +156,7 @@ function createMemberCard(member, viewType) {
     return card;
 }
 
-// update button active states
+// Function to update button active states
 function updateButtonStates(activeView) {
     const gridBtn = document.getElementById('grid-btn');
     const listBtn = document.getElementById('list-btn');
@@ -153,7 +172,7 @@ function updateButtonStates(activeView) {
     }
 }
 
-// set up view toggle functionality
+// Function to set up view toggle functionality
 function setupViewToggle() {
     const gridBtn = document.getElementById('grid-btn');
     const listBtn = document.getElementById('list-btn');
@@ -169,29 +188,45 @@ function setupViewToggle() {
             if (currentView !== 'list') {
                 displayMembers('list');
             }
-        }); 
+        });
     }
 }
 
-//initialize the directory page
-function initDirectory() {
+// Function to initialize the directory page
+async function initDirectory() {
     const directoryContainer = document.getElementById('directory');
     if (directoryContainer) {
         directoryContainer.innerHTML = '<p class="loading">Loading member data...</p>';
     }
     
-    membersData = getMembersData();
-    setupViewToggle();
-    displayMembers('grid');
+    try {
+        // Use async/await to fetch data
+        membersData = await fetchMembersData();
+        setupViewToggle();
+        displayMembers('grid');
+    } catch (error) {
+        console.error('Error initializing directory:', error);
+        if (directoryContainer) {
+            directoryContainer.innerHTML = `
+                <div class="error">
+                    <p>Failed to load member data. Please try again later.</p>
+                    <button onclick="initDirectory()">Retry</button>
+                </div>
+            `;
+        }
+    }
 }
 
 // Make initDirectory available globally
 window.initDirectory = initDirectory;
 
 // Initialize when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initDirectory);
+document.addEventListener('DOMContentLoaded', function() {
+    // Add a small delay to ensure DOM is fully ready
+    setTimeout(initDirectory, 100);
+});
 
-// dynamic styles
+// Dynamic styles
 const style = document.createElement('style');
 style.textContent = `
     .loading, .no-data, .error {
