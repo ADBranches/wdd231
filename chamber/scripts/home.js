@@ -48,36 +48,33 @@ function createProgrammaticLogo(container) {
     });
 }
 // const url = `https://api.openweathermap.org/data/2.5/forecast?lat=32°39'05"E&lon=0°23'08"N&units=imperial&appid=WEATHER_API_KEY`;
-// 0°23'08"N 32°39'05"E
 //  the displayWeather 
 async function displayWeather() {
     const weatherElement = document.getElementById('weather');
     if (!weatherElement) return;
 
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=32°39'05"E&lon=0°23'08"N&units=imperial&appid=${import.meta.env.VITE_WEATHER_API_KEY}`;
+    // Using a free weather API (example - may have limitations)
+    const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=0.3864&longitude=32.6514&current=temperature_2m,weather_code&daily=temperature_2m_max&temperature_unit=fahrenheit';
+    
     try {
         const response = await fetch(apiUrl);
         if (response.ok) {
             const data = await response.json();
-            console.log(data); // Check the data structure in the console
-            // Update current weather
-            const current = data.list[0];
+            // Processing the data accordingly
             weatherElement.innerHTML = `
-                <p><strong>Current:</strong> ${current.main.temp.toFixed(0)}°F, ${current.weather[0].description}</p>
+                <p><strong>Current:</strong> ${data.current.temperature_2m}°F</p>
                 <p><strong>Forecast:</strong> 
-                    Today: ${data.list[0].main.temp.toFixed(0)}°F,
-                    Tomorrow: ${data.list[8].main.temp.toFixed(0)}°F,
-                    ${data.list[16].main.temp.toFixed(0)}°F
+                    Today: ${data.daily.temperature_2m_max[0]}°F,
+                    Tomorrow: ${data.daily.temperature_2m_max[1]}°F
                 </p>
             `;
-        } else {
-            throw Error(await response.text());
         }
     } catch (error) {
         console.error('Weather fetch error:', error);
-        weatherElement.innerHTML = `<p>Error loading weather data. Check console.</p>`;
+        weatherElement.innerHTML = `<p>Weather data unavailable</p>`;
     }
 }
+
 
 //  spotlights
 async function displaySpotlights() {
