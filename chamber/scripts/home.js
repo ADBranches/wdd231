@@ -47,19 +47,24 @@ function createProgrammaticLogo(container) {
         loadLogo();
     });
 }
+// const url = `https://api.openweathermap.org/data/2.5/forecast?lat=YOUR_LAT&lon=YOUR_LON&units=imperial&appid=WEATHER_API_KEY`;
 
 //  the displayWeather 
 async function displayWeather() {
     const weatherElement = document.getElementById('weather');
     if (!weatherElement) return;
 
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=YOUR_LAT&lon=YOUR_LON&units=imperial&appid=WEATHER_API_KEY`;
+    // Use a CORS proxy for development on localhost
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=YOUR_LAT&lon=YOUR_LON&units=imperial&appid=WEATHER_API_KEY`;
+    const url = proxyUrl + apiUrl;
 
     try {
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            // Updating current weather
+            console.log(data); // Check the data structure in the console
+            // Update current weather
             const current = data.list[0];
             weatherElement.innerHTML = `
                 <p><strong>Current:</strong> ${current.main.temp.toFixed(0)}°F, ${current.weather[0].description}</p>
@@ -73,10 +78,11 @@ async function displayWeather() {
             throw Error(await response.text());
         }
     } catch (error) {
-        console.error(error);
-        weatherElement.innerHTML = `<p>Error loading weather data.</p>`;
+        console.error('Weather fetch error:', error);
+        weatherElement.innerHTML = `<p>Error loading weather data. Check console.</p>`;
     }
 }
+
 //  spotlights
 async function displaySpotlights() {
     const spotlightsContainer = document.querySelector('.spotlights');
