@@ -1,0 +1,52 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+header, footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #1E90FF;
+    color: white;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.discover-grid {
+    display: grid;
+    grid-template-areas:
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5"
+        "card6"
+        "card7"
+        "card8";
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Hover effect only for desktop (handled in medium/large) */

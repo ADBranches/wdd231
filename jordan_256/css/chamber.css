@@ -1,0 +1,220 @@
+/* =======================
+   Hero Section
+   ======================= */
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(70%);
+  transition: transform 0.5s ease;
+}
+
+.hero img:hover {
+  transform: scale(1.05);
+}
+
+.hero .cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero .cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero .cta .btn {
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  color: #004080;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.hero .cta .btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #ffb700, #ff7f00);
+}
+
+/* =======================
+   Events Section
+   ======================= */
+.events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.event-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex: 1 1 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.event-card h3 {
+  margin-bottom: 0.5rem;
+  color: #004080;
+}
+
+.event-card p {
+  font-size: 0.9rem;
+}
+
+/* =======================
+   Weather Section
+   ======================= */
+.weather {
+  background: linear-gradient(120deg, #cce0ff, #e6f0ff);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 2rem 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.weather h2 {
+  margin-bottom: 1rem;
+  color: #004080;
+}
+
+#forecast {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.forecast-day {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  min-width: 100px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.forecast-day:hover {
+  transform: translateY(-5px);
+}
+
+/* =======================
+   Spotlights Section
+   ======================= */
+.spotlights {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.spotlight-card {
+  background: linear-gradient(135deg, #ffffff, #f0f8ff);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.spotlight-card img {
+  max-width: 120px;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
+.spotlight-card h3 {
+  margin-bottom: 0.5rem;
+  color: #004080;
+}
+
+.spotlight-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.spotlight-card .badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: gold;
+  color: #004080;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* =======================
+   Footer
+   ======================= */
+footer {
+  background-color: #004080;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  border-top: 4px solid #ffcc00;
+}
+
+footer a {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+/* =======================
+   Responsive Styles
+   ======================= */
+@media (min-width: 768px) {
+  .spotlights {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #forecast {
+    justify-content: space-between;
+  }
+
+  .hero .cta h2 {
+    font-size: 3rem;
+  }
+
+  .hero .cta .btn {
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+  }
+
+  .events {
+    justify-content: flex-start;
+  }
+}

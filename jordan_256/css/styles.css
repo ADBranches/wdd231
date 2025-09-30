@@ -1,0 +1,79 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #F0F8FF;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #1E90FF;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+header .subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* Sections */
+main {
+  padding: 1rem 2rem;
+}
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #1E90FF;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 0.3rem;
+}
+ul {
+  list-style: disc inside;
+}
+
+/* Accent Colors */
+.accent, .primary {
+  color: #1E90FF;
+  font-weight: bold;
+}
+.secondary {
+  color: #FFD700;
+  font-weight: bold;
+}
+.background {
+  background-color: #F0F8FF;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #ccc;
+}
+
+/* Wireframes */
+.wireframe {
+  margin: 1rem 0;
+  text-align: center;
+}
+.wireframe img {
+  max-width: 300px;
+  border: 2px solid #1E90FF;
+  border-radius: 8px;
+}
+.caption {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Footer */
+footer {
+  background-color: #1E90FF;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
