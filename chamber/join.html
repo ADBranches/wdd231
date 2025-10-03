@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join the Kambale Chamber of Commerce - Become a member and grow your business with our community">
+    <meta name="description" content="Apply for membership with Kambale Chamber of Commerce. Choose from NP, Bronze, Silver, or Gold membership levels to grow your business and connect with our community.">
     <meta name="author" content="Edwin Kambale">
     
     <!-- Facebook Open Graph Meta Tags -->
@@ -18,21 +18,10 @@
     <link rel="stylesheet" href="styles/join.css">
     
     <!-- Favicon Implementation -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
-
-    <!-- Microsoft Tiles -->
-    <meta name="msapplication-TileImage" content="images/mstile-150x150.png">
-    <meta name="msapplication-TileColor" content="#1a2a6c">
-    <meta name="theme-color" content="#1a2a6c">
-
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="site.webmanifest">
-
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+    
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
@@ -58,27 +47,27 @@
     </nav>
     
     <main>
+        <h1>Join the Kambale Chamber of Commerce</h1>
         <div class="join-container">
-            <h2>Join the Kambale Chamber of Commerce</h2>
             
             <!-- Membership Benefits -->
             <section class="benefits card">
-                <h3>Why Join Our Chamber?</h3>
+                <h2>Why Join Our Chamber?</h2>
                 <div class="benefits-grid">
                     <div class="benefit-item">
-                        <h4>📈 Business Growth</h4>
+                        <h3>📈 Business Growth</h3>
                         <p>Connect with potential clients and partners through our networking events and business directory.</p>
                     </div>
                     <div class="benefit-item">
-                        <h4>🎯 Marketing Exposure</h4>
+                        <h3>🎯 Marketing Exposure</h3>
                         <p>Increase your visibility with featured listings, event sponsorships, and promotional opportunities.</p>
                     </div>
                     <div class="benefit-item">
-                        <h4>💼 Advocacy</h4>
+                        <h3>💼 Advocacy</h3>
                         <p>We represent your interests at local and regional levels, advocating for business-friendly policies.</p>
                     </div>
                     <div class="benefit-item">
-                        <h4>📚 Resources</h4>
+                        <h3>📚 Resources</h3>
                         <p>Access exclusive business resources, workshops, and educational programs to help your business thrive.</p>
                     </div>
                 </div>
@@ -86,10 +75,10 @@
             
             <!-- Membership Levels -->
             <section class="membership-levels card">
-                <h3>Membership Levels</h3>
+                <h2>Membership Levels</h2>
                 <div class="levels-grid">
                     <div class="level-item">
-                        <h4>NP Membership (Non-Profit)</h4>
+                        <h3>NP Membership (Non-Profit)</h3>
                         <p class="price">Free</p>
                         <ul>
                             <li>Basic business listing in directory</li>
@@ -99,7 +88,7 @@
                         </ul>
                     </div>
                     <div class="level-item">
-                        <h4>Bronze Membership</h4>
+                        <h3>Bronze Membership</h3>
                         <p class="price">$200/year</p>
                         <ul>
                             <li>Enhanced business listing</li>
@@ -109,7 +98,7 @@
                         </ul>
                     </div>
                     <div class="level-item">
-                        <h4>Silver Membership</h4>
+                        <h3>Silver Membership</h3>
                         <p class="price">$400/year</p>
                         <ul>
                             <li>Featured business listing</li>
@@ -120,7 +109,7 @@
                         </ul>
                     </div>
                     <div class="level-item">
-                        <h4>Gold Membership</h4>
+                        <h3>Gold Membership</h3>
                         <p class="price">$600/year</p>
                         <ul>
                             <li>Premium featured listing</li>
@@ -136,40 +125,40 @@
             
             <!-- Application Form -->
             <section class="application-form card">
-                <h3>Membership Application</h3>
-                <form id="membership-form">
+                <h2>Membership Application</h2>
+                <form id="membership-form" method="get" action="thankyou.html">
                     <div class="form-section">
-                        <h4>Personal Information</h4>
+                        <h3>Personal Information</h3>
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
+                                <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
                             </div>
                             <div class="form-group">
                                 <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required>
+                                <input type="text" id="lastName" name="lastName" required autocomplete="family-name">
                             </div>
                             <div class="form-group">
                                 <label for="title">Title/Position</label>
-                                <input type="text" id="title" name="title" pattern="[A-Za-z\s\-]{7,}">
+                                <input type="text" id="title" name="title" pattern="[A-Za-z\s\-]{7,}" autocomplete="organization-title" title="Please enter at least 7 characters (letters, spaces, and hyphens only)">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                                <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Mobile Phone *</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <input type="tel" id="phone" name="phone" required autocomplete="tel">
                             </div>
                         </div>
                     </div>
                     
                     <div class="form-section">
-                        <h4>Business Information</h4>
+                        <h3>Business Information</h3>
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="businessName">Business Name *</label>
-                                <input type="text" id="businessName" name="businessName" required>
+                                <input type="text" id="businessName" name="businessName" required autocomplete="organization">
                             </div>
                             <div class="form-group">
                                 <label for="businessType">Business Type</label>
@@ -201,20 +190,19 @@
                     </div>
                     
                     <div class="form-section">
-                        <h4>Additional Information</h4>
+                        <h3>Additional Information</h3>
                         <div class="form-group">
-                            <label for="timestamp">Form Submission Date/Time</label>
-                            <input type="text" id="timestamp" name="timestamp" readonly>
+                            <input type="hidden" id="timestamp" name="timestamp">
                         </div>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Submit Application</button>
+                    <button type="submit" class="submit-btn">Submit Membership Application</button>
                 </form>
             </section>
             
             <!-- Contact Information -->
             <section class="contact-info card">
-                <h3>Need Help?</h3>
+                <h2>Need Help?</h2>
                 <p>Our membership team is here to assist you. Contact us:</p>
                 <div class="contact-details">
                     <p>📧 <strong>Email:</strong> membership@kambalecc.org</p>

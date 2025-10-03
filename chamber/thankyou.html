@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for your membership application to Kambale Chamber of Commerce">
+    <meta name="author" content="Edwin Kambale">
+    
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Application Received | Kambale Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://adbranches.github.io/wdd231/chamber/images/og-image.jpg">
+    <meta property="og:url" content="https://adbranches.github.io/wdd231/chamber/thankyou.html">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/join.css">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+    
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Application Received | Kambale Chamber of Commerce</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div id="logo-container"></div>
+            <h1>Kambale Chamber of Commerce</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <button id="hamburger-btn">☰</button>
+        <ul id="primary-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="thankyou-container">
+            <h1>Application Received</h1>
+            
+            <section class="confirmation-card card">
+                <h2>🎉 Thank You for Your Application!</h2>
+                <p>We have successfully received your membership application. Here are the details you submitted:</p>
+                
+                <div id="application-details" class="application-details">
+                    <!-- Application details will be dynamically inserted here -->
+                </div>
+                
+                <div class="next-steps">
+                    <h3>What Happens Next?</h3>
+                    <ul>
+                        <li>Our membership team will review your application within 2 business days</li>
+                        <li>You will receive a welcome email with next steps</li>
+                        <li>We'll contact you to complete the onboarding process</li>
+                        <li>You'll gain access to all member benefits upon approval</li>
+                    </ul>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="join.html" class="btn secondary">Submit Another Application</a>
+                    <a href="index.html" class="btn primary">Return to Homepage</a>
+                </div>
+            </section>
+            
+            <section class="contact-info card">
+                <h3>Questions About Your Application?</h3>
+                <p>Our membership team is here to help:</p>
+                <div class="contact-details">
+                    <p>📧 <strong>Email:</strong> membership@kambalecc.org</p>
+                    <p>📞 <strong>Phone:</strong> +243 999 888 777</p>
+                    <p>🏢 <strong>Address:</strong> 123 Commerce Street, Kambale City</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Kambale Chamber of Commerce</h3>
+                <p>123 Commerce Street, Kambale City</p>
+                <p>Email: info@kambalecc.org</p>
+                <p>Phone: +243 999 888 777</p>
+            </div>
+            
+            <div class="development-info">
+                <p>&copy; <span id="currentyear"></span> Kambale Chamber of Commerce</p>
+                <p>Edwin Kambale | WDD 231</p>
+                <p>Last Modification: <span id="lastmodified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/thankyou.js"></script>
+</body>
+</html>

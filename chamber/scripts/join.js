@@ -1,6 +1,6 @@
-// Join page specific functionality
+// Joining page specific functionality
 
-// Set timestamp when page loads
+// Setting timestamp when page loads
 function setTimestamp() {
     const timestampField = document.getElementById('timestamp');
     if (timestampField) {
@@ -9,7 +9,7 @@ function setTimestamp() {
     }
 }
 
-// Validate form inputs
+// Validating form inputs
 function setupFormValidation() {
     const form = document.getElementById('membership-form');
     if (!form) return;
@@ -26,87 +26,52 @@ function setupFormValidation() {
         });
     }
     
-    // Form submission handler
+    // Form submission handler - UPDATED for GET submission to thankyou.html
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
+        // Updating timestamp right before submission
+        setTimestamp();
         
-        if (this.checkValidity()) {
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Store in localStorage (for demonstration)
-            localStorage.setItem('membershipApplication', JSON.stringify(data));
-            
-            // Show success message
-            showSubmissionSuccess(data);
-            
-            // Reset form
-            this.reset();
-            setTimestamp(); // Reset timestamp
-        } else {
-            // Show validation errors
+        // Validating form - only prevent default if invalid
+        if (!this.checkValidity()) {
+            e.preventDefault();
             showValidationErrors();
+            return;
         }
+        
+        // If form is valid, we'll allow natural submission to thankyou.html
+        // The form will submit via GET method with all data as URL parameters
+        console.log('Form is valid, submitting to thankyou.html...');
+        
+        // Optional: Show a brief loading message
+        showLoadingMessage();
     });
 }
 
-// Show success message after form submission
-function showSubmissionSuccess(data) {
-    // Create success message
-    const successMessage = document.createElement('div');
-    successMessage.className = 'success-message';
-    successMessage.innerHTML = `
-        <h3>🎉 Application Submitted Successfully!</h3>
-        <p>Thank you, ${data.firstName} ${data.lastName}, for applying for ${data.membershipLevel} membership.</p>
-        <p>We'll review your application and contact you at ${data.email} within 2 business days.</p>
-        <button onclick="this.parentElement.remove()">Close</button>
-    `;
+// Showing brief loading message before redirect
+function showLoadingMessage() {
+    const submitBtn = document.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
     
-    // Style the success message
-    successMessage.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: var(--spacing-lg);
-        border-radius: var(--border-radius-lg);
-        box-shadow: var(--shadow-lg);
-        z-index: 1000;
-        max-width: 500px;
-        width: 90%;
-        text-align: center;
-        border: 4px solid var(--accent-color);
-    `;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
     
-    successMessage.querySelector('button').style.cssText = `
-        background: var(--primary-color);
-        color: white;
-        padding: var(--spacing-sm) var(--spacing-lg);
-        border: none;
-        border-radius: var(--border-radius);
-        margin-top: var(--spacing-md);
-        cursor: pointer;
-    `;
-    
-    // Add to page
-    document.body.appendChild(successMessage);
-    
-    // Log to console for debugging
-    console.log('Membership application submitted:', data);
+    // Resetting button after short delay (form will have submitted by then)
+    setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }, 1000);
 }
 
-// Show validation errors
+// Showing validation errors
 function showValidationErrors() {
     const form = document.getElementById('membership-form');
     const invalidFields = form.querySelectorAll(':invalid');
     
-    // Add error styles to invalid fields
+    // Adding error styles to invalid fields
     invalidFields.forEach(field => {
         field.style.borderColor = 'var(--secondary-color)';
         
-        // Remove error style when field becomes valid
+        // Removing error style when field becomes valid
         field.addEventListener('input', function() {
             if (this.checkValidity()) {
                 this.style.borderColor = '';
@@ -114,13 +79,53 @@ function showValidationErrors() {
         });
     });
     
-    // Focus on first invalid field
+    // Focussing on first invalid field
     if (invalidFields.length > 0) {
         invalidFields[0].focus();
     }
+    
+    // Showing error message
+    showErrorMessage('Please fix the errors above before submitting.');
 }
 
-// Calculate membership benefits based on level
+// Showing error message
+function showErrorMessage(message) {
+    // Removing existing error message
+    const existingError = document.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'error-message';
+    errorMessage.innerHTML = `
+        <p>❌ ${message}</p>
+    `;
+    
+    // Styling the error message
+    errorMessage.style.cssText = `
+        background: var(--secondary-color);
+        color: white;
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius);
+        margin: var(--spacing-md) 0;
+        text-align: center;
+        font-weight: bold;
+    `;
+    
+    // Inserting after the form
+    const form = document.getElementById('membership-form');
+    form.parentNode.insertBefore(errorMessage, form.nextSibling);
+    
+    // Auto-removing after 5 seconds
+    setTimeout(() => {
+        if (errorMessage.parentNode) {
+            errorMessage.remove();
+        }
+    }, 5000);
+}
+
+// Calculating membership benefits based on level
 function setupMembershipCalculator() {
     const levelSelect = document.getElementById('membershipLevel');
     const benefitsContainer = document.createElement('div');
@@ -157,27 +162,77 @@ function setupMembershipCalculator() {
             benefitsContainer.innerHTML = benefits;
         });
         
-        // Trigger change event to show initial state
+        // Triggering change event to show initial state
         levelSelect.dispatchEvent(new Event('change'));
     }
 }
 
-// Initialize join page
+// Enhancing real-time validation feedback
+function setupRealTimeValidation() {
+    const form = document.getElementById('membership-form');
+    const inputs = form.querySelectorAll('input, select, textarea');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (!this.checkValidity() && this.value.length > 0) {
+                this.style.borderColor = 'var(--secondary-color)';
+                showFieldError(this, this.validationMessage);
+            } else {
+                this.style.borderColor = '';
+                clearFieldError(this);
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.checkValidity()) {
+                this.style.borderColor = '';
+                clearFieldError(this);
+            }
+        });
+    });
+}
+
+// Showing field-specific error message
+function showFieldError(field, message) {
+    clearFieldError(field);
+    
+    const errorElement = document.createElement('div');
+    errorElement.className = 'field-error';
+    errorElement.textContent = message;
+    errorElement.style.cssText = `
+        color: var(--secondary-color);
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        font-weight: bold;
+    `;
+    
+    field.parentNode.appendChild(errorElement);
+}
+
+// Clearing field-specific error message
+function clearFieldError(field) {
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) {
+        existingError.remove();
+    }
+}
+
+// Initializing join page
 function initJoin() {
     setTimestamp();
     setupFormValidation();
     setupMembershipCalculator();
+    setupRealTimeValidation();
 }
 
-// Make functions available globally
+// Making functions available globally
 window.setTimestamp = setTimestamp;
 window.setupFormValidation = setupFormValidation;
-window.showSubmissionSuccess = showSubmissionSuccess;
 window.showValidationErrors = showValidationErrors;
 window.setupMembershipCalculator = setupMembershipCalculator;
 window.initJoin = initJoin;
 
-// Initialize when DOM is fully loaded
+// Initializing when DOM is fully loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initJoin);
 } else {
