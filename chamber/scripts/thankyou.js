@@ -1,11 +1,11 @@
-// Display form data from URL parameters on thankyou.html
+// Displaying form data from URL parameters on thankyou.html
 function displayApplicationDetails() {
     const params = new URLSearchParams(window.location.search);
     const container = document.getElementById('application-details');
     
     if (!container) return;
     
-    // Get all form values
+    // Getting all form values
     const firstName = params.get('firstName') || 'Not provided';
     const lastName = params.get('lastName') || 'Not provided';
     const title = params.get('title') || 'Not provided';
@@ -17,10 +17,10 @@ function displayApplicationDetails() {
     const businessDescription = params.get('businessDescription') || 'Not provided';
     const timestamp = params.get('timestamp') || new Date().toLocaleString();
     
-    // Format membership level for display
+    // Formatting membership level for display
     const membershipDisplay = formatMembershipLevel(membershipLevel);
     
-    // Create the application details HTML
+    // Creating the application details HTML
     container.innerHTML = `
         <div class="detail-grid">
             <div class="detail-section">
@@ -70,7 +70,7 @@ function displayApplicationDetails() {
         </div>
     `;
     
-    // Log the application data for debugging
+    // Logging the application data for debugging
     console.log('Application details displayed:', {
         firstName,
         lastName,
@@ -81,7 +81,7 @@ function displayApplicationDetails() {
     });
 }
 
-// Format membership level for display
+// Formatting membership level for display
 function formatMembershipLevel(level) {
     const levels = {
         'np': 'NP Membership (Non-Profit) - Free',
@@ -92,7 +92,7 @@ function formatMembershipLevel(level) {
     return levels[level] || level;
 }
 
-// Format business type for display
+// Formatting business type for display
 function formatBusinessType(type) {
     const types = {
         'retail': 'Retail',
@@ -105,26 +105,26 @@ function formatBusinessType(type) {
     return types[type] || type || 'Not specified';
 }
 
-// Generate a simple application ID
+// Generating a simple application ID
 function generateApplicationId() {
     return Math.random().toString(36).substr(2, 9).toUpperCase();
 }
 
-// Initialize the thankyou page
+// Initializing the thankyou page
 function initThankYou() {
     displayApplicationDetails();
     
-    // Update footer dates
+    // Updating footer dates
     if (typeof updateFooterDates === 'function') {
         updateFooterDates();
     }
 }
 
-// Make functions available globally
+// Making functions available globally
 window.displayApplicationDetails = displayApplicationDetails;
 window.initThankYou = initThankYou;
 
-// Initialize when DOM is fully loaded
+// Initializing when DOM is fully loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initThankYou);
 } else {
