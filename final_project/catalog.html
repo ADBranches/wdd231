@@ -14,7 +14,7 @@
     <meta property="og:description" content="Explore our extensive movie database with advanced filtering and search capabilities.">
     
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     
     <!-- CSS -->
     <link rel="stylesheet" href="styles/normalize.css">
@@ -30,7 +30,7 @@
                 <h1><a href="index.html">🎬 MovieCatalog</a></h1>
             </div>
             <nav>
-                <button id="hamburger-btn" aria-label="Toggle navigation">☰</button>
+                <button id="hamburger-btn" type="button" aria-label="Toggle navigation">☰</button>
                 <ul id="primary-nav">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="catalog.html" class="active">Movie Catalog</a></li>
@@ -48,6 +48,7 @@
 
         <!-- Filters Section -->
         <section class="filters-section">
+            <h2 class="visually-hidden">Movie Filters</h2>
             <div class="filters-grid">
                 <!-- Search -->
                 <div class="filter-group">
@@ -97,8 +98,8 @@
 
                 <!-- Action Buttons -->
                 <div class="filter-actions">
-                    <button id="apply-filters" class="btn-primary">Apply Filters</button>
-                    <button id="reset-filters" class="btn-secondary">Reset</button>
+                    <button id="apply-filters" type="button" class="btn-primary">Apply Filters</button>
+                    <button id="reset-filters" type="button" class="btn-secondary">Reset</button>
                 </div>
             </div>
         </section>
@@ -106,14 +107,15 @@
         <!-- Results Info -->
         <div class="results-info">
             <span id="results-count">Loading movies...</span>
-            <div cdb21456df982049acb9c885b2eac547class="view-toggle">
-                <button id="grid-view" class="view-btn active" aria-label="Grid view">⏹️</button>
-                <button id="list-view" class="view-btn" aria-label="List view">📄</button>
+            <div class="view-toggle">
+                <button id="grid-view" type="button" class="view-btn active" aria-label="Grid view">⏹️</button>
+                <button id="list-view" type="button" class="view-btn" aria-label="List view">📄</button>
             </div>
         </div>
 
         <!-- Movies Container -->
         <section class="movies-container">
+            <h2 class="visually-hidden">Movie Results</h2>
             <div id="movies-grid" class="movies-grid view-grid">
                 <!-- Dynamic content will be loaded here -->
                 <div class="loading">Loading movies...</div>
@@ -121,15 +123,15 @@
 
             <!-- Load More Button -->
             <div class="load-more-container">
-                <button id="load-more" class="btn-primary">Load More Movies</button>
+                <button id="load-more" type="button" class="btn-primary">Load More Movies</button>
             </div>
         </section>
 
         <!-- Modal for Movie Details -->
         <dialog id="movie-modal" class="modal">
             <div class="modal-content">
-                <button id="close-modal" class="close-btn" aria-label="Close modal">×</button>
-                <div id="modal-content">
+                <button id="close-modal" type="button" class="close-btn" aria-label="Close modal">×</button>
+                <div id="modal-body">
                     <!-- Dynamic modal content -->
                 </div>
             </div>
@@ -138,7 +140,7 @@
         <!-- Error Message Modal -->
         <dialog id="error-modal" class="modal">
             <div class="modal-content">
-                <button id="close-error-modal" class="close-btn" aria-label="Close error modal">×</button>
+                <button id="close-error-modal" type="button" class="close-btn" aria-label="Close error modal">×</button>
                 <p id="error-message">An error occurred. Please try again later.</p>
             </div>
         </dialog>
