@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieCatalog Site Plan | WDD 231 Project</title>
+    <style>
+        /* Color Schema */
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --dark-gray: #1f2937;
+            --medium-gray: #374151;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --accent-yellow: #f59e0b;
+        }
+
+        /* Typography */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        /* Sections */
+        section {
+            background: var(--white);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--dark-blue);
+        }
+
+        /* Color Swatches */
+        .color-swatch {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 6px;
+            color: var(--dark-gray);
+            font-weight: bold;
+        }
+
+        .color-primary { background-color: var(--primary-blue); color: white; }
+        .color-dark { background-color: var(--dark-blue); color: white; }
+        .color-gray { background-color: var(--dark-gray); color: white; }
+        .color-light { background-color: var(--light-gray); color: var(--dark-gray); }
+        .color-accent { background-color: var(--accent-yellow); color: var(--dark-gray); }
+
+        /* Wireframe Styles */
+        .wireframe {
+            background: var(--light-gray);
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .wireframe-mobile, .wireframe-desktop {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .wireframe-mobile {
+            max-width: 375px;
+        }
+
+        .wireframe-desktop {
+            max-width: 100%;
+        }
+
+        /* Scenario Cards */
+        .scenario-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        /* Typography Demo */
+        .typography-demo h1 { font-size: 2.5rem; font-weight: 600; }
+        .typography-demo h2 { font-size: 2rem; font-weight: 600; }
+        .typography-demo h3 { font-size: 1.5rem; font-weight: 600; }
+        .typography-demo p { font-size: 1rem; font-weight: 400; }
+        .typography-demo .bold { font-weight: 600; }
+
+        /* Lists */
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>MovieCatalog Site Plan</h1>
+            <p style="text-align: center; margin: 1rem 0 0 0; opacity: 0.9;">WDD 231 Individual Project</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Site Name Section -->
+        <section id="site-name">
+            <h2>1. Site Name</h2>
+            <h3>MovieCatalog</h3>
+            <p><strong>Description:</strong> A modern, intuitive platform for discovering and organizing movies. The name clearly indicates the site's purpose as a comprehensive movie database and organizational tool.</p>
+            <p><strong>Domain Availability:</strong> moviecatalog.app (available) or movie-catalog.org (available)</p>
+        </section>
+
+        <!-- Site Purpose Section -->
+        <section id="site-purpose">
+            <h2>2. Site Purpose</h2>
+            <p>MovieCatalog provides users with comprehensive movie discovery and organization capabilities:</p>
+            <ul>
+                <li><strong>Comprehensive Movie Discovery:</strong> Browse thousands of films with advanced filtering capabilities</li>
+                <li><strong>Personal Collections:</strong> Create and manage custom movie collections and favorites</li>
+                <li><strong>Detailed Information:</strong> Access movie details, ratings, cast information, and metadata</li>
+                <li><strong>Community Features:</strong> User-driven movie suggestions and recommendations</li>
+                <li><strong>Advanced Search:</strong> Filter by genre, year, rating, popularity, and more</li>
+            </ul>
+        </section>
+
+        <!-- Scenarios Section -->
+        <section id="scenarios">
+            <h2>3. Scenarios</h2>
+            <p>These scenarios represent questions from our target audience that drive the website content and functionality:</p>
+            
+            <div class="scenario-card">
+                <h3>Scenario 1: Academic Research</h3>
+                <p><strong>User:</strong> "I'm a film student looking for highly-rated drama films from the 1990s for my research project. How can I quickly find and organize these movies?"</p>
+                <p><strong>Solution:</strong> Advanced filtering by genre, decade, and rating with collection creation features.</p>
+            </div>
+
+            <div class="scenario-card">
+                <h3>Scenario 2: Social Planning</h3>
+                <p><strong>User:</strong> "My friends are coming over for movie night and we can't decide what to watch. Is there a way to filter movies by genre, rating, and release year to find something we'll all enjoy?"</p>
+                <p><strong>Solution:</strong> Multi-criteria filtering and discovery features for group viewing decisions.</p>
+            </div>
+
+            <div class="scenario-card">
+                <h3>Scenario 3: Community Contribution</h3>
+                <p><strong>User:</strong> "I noticed a great indie film missing from your catalog. How can I suggest it for addition to help other users discover it?"</p>
+                <p><strong>Solution:</strong> Integrated movie suggestion form with user submission tracking.</p>
+            </div>
+        </section>
+
+        <!-- Color Schema Section -->
+        <section id="color-schema">
+            <h2>4. Color Schema</h2>
+            <p>The following color palette has been selected for optimal readability, accessibility, and modern aesthetic:</p>
+            
+            <div class="color-swatch color-primary">Primary Blue (#2563eb)<br>Headers, Primary Buttons, Active States</div>
+            <div class="color-swatch color-dark">Dark Blue (#1e40af)<br>Hover States, Secondary Accents</div>
+            <div class="color-swatch color-gray">Dark Gray (#1f2937)<br>Header/Footer Backgrounds</div>
+            <div class="color-swatch color-light">Light Gray (#f3f4f6)<br>Page Background, Secondary Elements</div>
+            <div class="color-swatch color-accent">Accent Yellow (#f59e0b)<br>Ratings, Highlights, Important Indicators</div>
+
+            <h3 style="margin-top: 2rem;">Color Applications:</h3>
+            <ul>
+                <li><strong>Primary Blue:</strong> Main navigation, primary call-to-action buttons, active links</li>
+                <li><strong>Dark Blue:</strong> Button hover states, secondary interactive elements</li>
+                <li><strong>Dark Gray:</strong> Header and footer backgrounds for contrast</li>
+                <li><strong>Light Gray:</strong> Main content background, card backgrounds</li>
+                <li><strong>White:</strong> Card content, text on dark backgrounds</li>
+                <li><strong>Accent Yellow:</strong> Star ratings, highlights, warning indicators</li>
+            </ul>
+        </section>
+
+        <!-- Typography Section -->
+        <section id="typography">
+            <h2>5. Typography</h2>
+            <p><strong>Primary Font Family:</strong> Segoe UI, Tahoma, Geneva, Verdana, sans-serif</p>
+            
+            <div class="typography-demo">
+                <h1>Heading 1 - Main Page Titles (Segoe UI, Semi-bold)</h1>
+                <h2>Heading 2 - Section Headers (Segoe UI, Semi-bold)</h2>
+                <h3>Heading 3 - Subsection Headers (Segoe UI, Semi-bold)</h3>
+                <p>Body Text - Primary content and paragraphs (Segoe UI, Regular). This font provides excellent readability across all devices and maintains clarity at various sizes.</p>
+                <p class="bold">Navigation & Buttons - Interactive elements (Segoe UI, Medium)</p>
+            </div>
+
+            <h3>Font Applications:</h3>
+            <ul>
+                <li><strong>Headings (h1-h3):</strong> Segoe UI, semi-bold weight for clear visual hierarchy</li>
+                <li><strong>Body Text:</strong> Segoe UI, regular weight for optimal reading experience</li>
+                <li><strong>Navigation & Buttons:</strong> Segoe UI, medium weight for better visibility and interaction</li>
+                <li><strong>Fallback Stack:</strong> Tahoma, Geneva, Verdana, sans-serif for cross-platform compatibility</li>
+            </ul>
+        </section>
+
+        <!-- Wireframe Section -->
+        <section id="wireframe">
+            <h2>6. Wireframe</h2>
+            
+            <h3>Mobile View (≤ 768px)</h3>
+            <div class="wireframe">
+                <div class="wireframe-mobile">
+                    <div style="background: var(--dark-gray); color: white; padding: 1rem; text-align: center; margin-bottom: 1rem;">
+                        <strong>🎬 MovieCatalog</strong><br>
+                        <small>☰ Navigation Menu</small>
+                    </div>
+                    
+                    <div style="background: var(--primary-blue); color: white; padding: 1rem; text-align: center; margin-bottom: 1rem;">
+                        <strong>Movie Catalog</strong><br>
+                        <small>Discover thousands of movies</small>
+                    </div>
+                    
+                    <div style="border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem;">
+                        <strong>Filters</strong><br>
+                        [Search...]<br>
+                        [Genre ⌄] [Year ⌄]<br>
+                        [Apply] [Reset]
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1rem;">
+                        <div style="border: 1px solid #ccc; padding: 2rem; text-align: center;">Movie Card</div>
+                        <div style="border: 1px solid #ccc; padding: 2rem; text-align: center;">Movie Card</div>
+                        <div style="border: 1px solid #ccc; padding: 2rem; text-align: center;">Movie Card</div>
+                        <div style="border: 1px solid #ccc; padding: 2rem; text-align: center;">Movie Card</div>
+                    </div>
+                    
+                    <div style="background: var(--light-gray); padding: 1rem; text-align: center;">
+                        <strong>Suggest a Movie Form</strong><br>
+                        [Input fields...]<br>
+                        [Submit Button]
+                    </div>
+                </div>
+            </div>
+
+            <h3>Desktop View (≥ 769px)</h3>
+            <div class="wireframe">
+                <div class="wireframe-desktop">
+                    <div style="background: var(--dark-gray); color: white; padding: 1rem; margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                        <strong>🎬 MovieCatalog</strong>
+                        <span>Home • Catalog • Collections • Attributions</span>
+                    </div>
+                    
+                    <div style="background: var(--primary-blue); color: white; padding: 2rem; text-align: center; margin-bottom: 1rem;">
+                        <h2 style="color: white; margin: 0;">Movie Catalog</h2>
+                        <p style="margin: 0;">Discover thousands of movies with advanced filtering</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+                        <div>
+                            <div style="background: var(--light-gray); padding: 1rem; margin-bottom: 1rem;">
+                                <strong>Filter Controls:</strong> Search | Genre | Year | Rating | Sort
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                                <div style="border: 1px solid #ccc; padding: 3rem; text-align: center;">Movie</div>
+                                <div style="border: 1px solid #ccc; padding: 3rem; text-align: center;">Movie</div>
+                                <div style="border: 1px solid #ccc; padding: 3rem; text-align: center;">Movie</div>
+                                <div style="border: 1px solid #ccc; padding: 3rem; text-align: center;">Movie</div>
+                                <div style="border: 1px solid #ccc; padding: 3rem; text-align: center;">Movie</div>
+                                <div style="border: 1px solid #ccc; padding: 3rem; text-align: center;">Movie</div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--light-gray); padding: 1rem;">
+                            <h4>Suggest a Movie</h4>
+                            <div style="border: 1px dashed #ccc; padding: 1rem; text-align: center;">
+                                Form Fields<br>
+                                Movie Title<br>
+                                Release Year<br>
+                                Genre<br>
+                                Submit Button
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specifications -->
+        <section id="technical">
+            <h2>7. Technical Specifications</h2>
+            <h3>HTML & CSS Validation</h3>
+            <ul>
+                <li><strong>HTML5:</strong> Semantic structure with proper header, main, section, footer elements</li>
+                <li><strong>CSS3:</strong> Modern features including custom properties, flexbox, and CSS grid</li>
+                <li><strong>Accessibility:</strong> ARIA labels, proper heading hierarchy, keyboard navigation</li>
+                <li><strong>Responsive Design:</strong> Mobile-first approach with breakpoints at 768px and 1024px</li>
+            </ul>
+
+            <h3>Project Structure</h3>
+            <ul>
+                <li><strong>Homepage (index.html):</strong> Featured movies, popular collections, search</li>
+                <li><strong>Movie Catalog (catalog.html):</strong> Advanced filtering, grid/list views</li>
+                <li><strong>Collections (collections.html):</strong> User-created movie collections</li>
+                <li><strong>Attributions (attributions.html):</strong> Resource credits and technologies</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MovieCatalog | WDD 231 Individual Project</p>
+            <p>This site plan document uses the specified color schema and typography throughout.</p>
+        </div>
+    </footer>
+</body>
+</html>
