@@ -1,0 +1,520 @@
+/* Collections Page Specific Styles */
+.collections-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+}
+
+.collections-header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.collections-header p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Collections Grid */
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.collection-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.collection-header {
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.collection-header h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.collection-header p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Collection Movies Preview */
+.collection-movies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    flex: 1;
+}
+
+.preview-card {
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.preview-card:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+}
+
+.preview-card img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+.preview-info {
+    padding: var(--spacing-xs);
+}
+
+.preview-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+    line-height: 1.2;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.preview-year {
+    font-size: 0.6rem;
+    color: var(--text-light);
+}
+
+/* Empty and Error States */
+.empty-state,
+.error-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--text-light);
+}
+
+.empty-state p,
+.error-state p {
+    margin: 0;
+}
+
+.empty-state .small {
+    font-size: 0.8rem;
+    margin-top: var(--spacing-xs);
+}
+
+/* View Collection Button */
+.view-collection-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.view-collection-btn:hover {
+    background: #0a2a4a;
+    transform: translateY(-2px);
+}
+
+/* Collection Detail View */
+.collection-detail {
+    animation: fadeIn 0.3s ease;
+}
+
+.collection-detail.hidden {
+    display: none;
+}
+
+.detail-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    left: var(--spacing-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) translateX(-2px);
+}
+
+#collection-detail-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+#collection-detail-description {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Collection Movies Full View */
+#collection-movies-full {
+    min-height: 400px;
+}
+
+/* Special Collection Styles */
+.collection-card[data-collection="oscar-winners"] {
+    border-left: 4px solid #ffd700;
+}
+
+.collection-card[data-collection="oscar-winners"] .view-collection-btn {
+    background: #ffd700;
+    color: #000;
+}
+
+.collection-card[data-collection="oscar-winners"] .view-collection-btn:hover {
+    background: #e6c200;
+}
+
+.collection-card[data-collection="favorites"] {
+    border-left: 4px solid #e91e63;
+}
+
+.collection-card[data-collection="favorites"] .view-collection-btn {
+    background: #e91e63;
+}
+
+.collection-card[data-collection="favorites"] .view-collection-btn:hover {
+    background: #c2185b;
+}
+
+.collection-card[data-collection="90s-classics"] {
+    border-left: 4px solid #9c27b0;
+}
+
+.collection-card[data-collection="2000s-hits"] {
+    border-left: 4px solid #3f51b5;
+}
+
+.collection-card[data-collection="sci-fi"] {
+    border-left: 4px solid #00bcd4;
+}
+
+.collection-card[data-collection="comedy"] {
+    border-left: 4px solid #ff9800;
+}
+
+/* Collection Icons */
+.collection-header h2::before {
+    font-size: 1.2em;
+}
+
+/* Animation for collection transitions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.collection-detail {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Loading States */
+.collection-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl);
+    grid-column: 1 / -1;
+}
+
+.loading-dots {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loading-dots div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loading-dots div:nth-child(1) {
+    left: 8px;
+    animation: loading-dots1 0.6s infinite;
+}
+
+.loading-dots div:nth-child(2) {
+    left: 8px;
+    animation: loading-dots2 0.6s infinite;
+}
+
+.loading-dots div:nth-child(3) {
+    left: 32px;
+    animation: loading-dots2 0.6s infinite;
+}
+
+.loading-dots div:nth-child(4) {
+    left: 56px;
+    animation: loading-dots3 0.6s infinite;
+}
+
+@keyframes loading-dots1 {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+@keyframes loading-dots3 {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+}
+
+@keyframes loading-dots2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(24px, 0); }
+}
+
+/* No Results State */
+.no-results {
+    text-align: center;
+    padding: var(--spacing-xl);
+    grid-column: 1 / -1;
+}
+
+.no-results h3 {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.no-results p {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .collections-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .collections-header h1 {
+        font-size: 2rem;
+    }
+    
+    .collections-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .collection-card {
+        padding: var(--spacing-md);
+    }
+    
+    .collection-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .collection-movies {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .detail-header {
+        padding: var(--spacing-lg);
+    }
+    
+    .back-btn {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin-bottom: var(--spacing-md);
+        align-self: flex-start;
+    }
+    
+    #collection-detail-title {
+        font-size: 2rem;
+    }
+    
+    #collection-detail-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .collections-header {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .collections-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .collection-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .collection-movies {
+        grid-template-columns: 1fr;
+    }
+    
+    .preview-card {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .preview-card img {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+    }
+    
+    .preview-info {
+        flex: 1;
+    }
+    
+    .preview-title {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 1;
+    }
+}
+
+/* Enhanced Collection Cards with Gradients */
+.collection-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+/* Hover Effects for Preview Cards */
+.preview-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.preview-card:hover::after {
+    opacity: 1;
+}
+
+/* Collection Counter */
+.collection-count {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-left: var(--spacing-xs);
+    vertical-align: middle;
+}
+
+/* Favorite Collection Special Styles */
+.collection-card[data-collection="favorites"] .collection-movies {
+    min-height: 120px;
+}
+
+/* Accessibility Improvements */
+.collection-card:focus-within {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.view-collection-btn:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .collection-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .view-collection-btn {
+        display: none;
+    }
+    
+    .back-btn {
+        display: none;
+    }
+}

@@ -134,6 +134,102 @@
                 </div>
             </div>
         </dialog>
+
+        <!-- Error Message Modal -->
+        <dialog id="error-modal" class="modal">
+            <div class="modal-content">
+                <button id="close-error-modal" class="close-btn" aria-label="Close error modal">×</button>
+                <p id="error-message">An error occurred. Please try again later.</p>
+            </div>
+        </dialog>
+
+        <!-- Movie Suggestion Form Section -->
+        <section class="suggestion-form-section">
+            <div class="form-container">
+                <h2>Suggest a Movie</h2>
+                <p>Can't find a movie in our catalog? Suggest it below!</p>
+                
+                <form id="movie-suggestion-form" method="get" action="form-action.html">
+                    <div class="form-grid">
+                        <!-- Movie Information -->
+                        <div class="form-group">
+                            <label for="movie-title">Movie Title *</label>
+                            <input type="text" id="movie-title" name="movieTitle" required 
+                                placeholder="Enter the complete movie title">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="release-year">Release Year *</label>
+                            <input type="number" id="release-year" name="releaseYear" required 
+                                min="1900" max="2030" placeholder="2024">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="movie-genre">Primary Genre *</label>
+                            <select id="movie-genre" name="movieGenre" required>
+                                <option value="">Select a genre</option>
+                                <option value="action">Action</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="drama">Drama</option>
+                                <option value="horror">Horror</option>
+                                <option value="sci-fi">Science Fiction</option>
+                                <option value="romance">Romance</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="documentary">Documentary</option>
+                                <option value="animation">Animation</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="director-name">Director Name</label>
+                            <input type="text" id="director-name" name="directorName" 
+                                placeholder="Director's full name">
+                        </div>
+                        
+                        <!-- Your Information -->
+                        <div class="form-group full-width">
+                            <h3>Your Information</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="suggester-name">Your Name *</label>
+                            <input type="text" id="suggester-name" name="suggesterName" required 
+                                placeholder="Your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="suggester-email">Your Email *</label>
+                            <input type="email" id="suggester-email" name="suggesterEmail" required 
+                                placeholder="your.email@example.com">
+                        </div>
+                        
+                        <!-- Additional Details -->
+                        <div class="form-group full-width">
+                            <label for="movie-description">Why should we add this movie? *</label>
+                            <textarea id="movie-description" name="movieDescription" required 
+                                    rows="4" placeholder="Tell us why this movie is special, notable actors, awards, or why you think our users would enjoy it..."></textarea>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="movie-notes">Additional Notes</label>
+                            <textarea id="movie-notes" name="movieNotes" 
+                                    rows="3" placeholder="Any additional information that might help us..."></textarea>
+                        </div>
+                        
+                        <!-- Hidden Fields -->
+                        <input type="hidden" id="submission-timestamp" name="submissionTimestamp">
+                        <input type="hidden" id="submission-id" name="submissionId">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Suggestion</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer>
