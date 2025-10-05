@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore curated movie collections - Oscar winners, by decade, genres and your personal favorites.">
+    <meta name="author" content="Your Name">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Movie Collections - Curated Selections">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-collections.jpg">
+    <meta property="og:url" content="https://yourusername.github.io/wdd231/final-project/collections.html">
+    <meta property="og:description" content="Discover hand-picked movie collections including award winners, decade highlights, and genre favorites.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/collections.css">
+    
+    <title>Movie Collections - Curated Selections | MovieCatalog</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1><a href="index.html">🎬 MovieCatalog</a></h1>
+            </div>
+            <nav>
+                <button id="hamburger-btn" aria-label="Toggle navigation">☰</button>
+                <ul id="primary-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Movie Catalog</a></li>
+                    <li><a href="collections.html" class="active">Collections</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="collections-header">
+            <h1>Movie Collections</h1>
+            <p>Explore hand-picked selections of exceptional films</p>
+        </div>
+
+        <!-- Collections Grid -->
+        <section class="collections-grid">
+            <!-- Oscar Winners Collection -->
+            <div class="collection-card" data-collection="oscar-winners">
+                <div class="collection-header">
+                    <h2>🏆 Oscar Winners</h2>
+                    <p>Academy Award winning masterpieces</p>
+                </div>
+                <div class="collection-movies" id="oscar-winners-preview">
+                    <!-- Dynamic preview of Oscar winners -->
+                </div>
+                <button class="view-collection-btn" data-collection="oscar-winners">
+                    View All Oscar Winners
+                </button>
+            </div>
+
+            <!-- By Decade Collections -->
+            <div class="collection-card" data-collection="90s-classics">
+                <div class="collection-header">
+                    <h2>📼 90s Classics</h2>
+                    <p>Iconic films from the 1990s</p>
+                </div>
+                <div class="collection-movies" id="90s-preview">
+                    <!-- Dynamic preview of 90s movies -->
+                </div>
+                <button class="view-collection-btn" data-collection="90s-classics">
+                    Explore 90s Movies
+                </button>
+            </div>
+
+            <div class="collection-card" data-collection="2000s-hits">
+                <div class="collection-header">
+                    <h2>🎯 2000s Hits</h2>
+                    <p>Blockbusters from the new millennium</p>
+                </div>
+                <div class="collection-movies" id="2000s-preview">
+                    <!-- Dynamic preview of 2000s movies -->
+                </div>
+                <button class="view-collection-btn" data-collection="2000s-hits">
+                    Explore 2000s Movies
+                </button>
+            </div>
+
+            <!-- Genre Collections -->
+            <div class="collection-card" data-collection="sci-fi">
+                <div class="collection-header">
+                    <h2>🚀 Sci-Fi Adventures</h2>
+                    <p>Journey to futuristic worlds</p>
+                </div>
+                <div class="collection-movies" id="sci-fi-preview">
+                    <!-- Dynamic preview of sci-fi movies -->
+                </div>
+                <button class="view-collection-btn" data-collection="sci-fi">
+                    Explore Sci-Fi
+                </button>
+            </div>
+
+            <div class="collection-card" data-collection="comedy">
+                <div class="collection-header">
+                    <h2>😂 Comedy Gold</h2>
+                    <p>Laugh-out-loud hilarious films</p>
+                </div>
+                <div class="collection-movies" id="comedy-preview">
+                    <!-- Dynamic preview of comedy movies -->
+                </div>
+                <button class="view-collection-btn" data-collection="comedy">
+                    Explore Comedy
+                </button>
+            </div>
+
+            <!-- User Favorites -->
+            <div class="collection-card" data-collection="favorites">
+                <div class="collection-header">
+                    <h2>❤️ Your Favorites</h2>
+                    <p>Movies you've saved and loved</p>
+                </div>
+                <div class="collection-movies" id="favorites-preview">
+                    <!-- Dynamic preview of user favorites -->
+                    <div class="empty-state">
+                        <p>No favorites yet</p>
+                        <p class="small">Start adding movies to your favorites!</p>
+                    </div>
+                </div>
+                <button class="view-collection-btn" data-collection="favorites">
+                    View Your Favorites
+                </button>
+            </div>
+        </section>
+
+        <!-- Collection Detail View (Hidden by default) -->
+        <section id="collection-detail" class="collection-detail hidden">
+            <div class="detail-header">
+                <button id="back-to-collections" class="back-btn">← Back to Collections</button>
+                <h2 id="collection-detail-title">Collection Title</h2>
+                <p id="collection-detail-description">Collection description</p>
+            </div>
+            <div id="collection-movies-full" class="movies-grid">
+                <!-- Full collection movies will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MovieCatalog</h3>
+                <p>Your ultimate movie discovery platform</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Movie Catalog</a></li>
+                    <li><a href="attributions.html">Attributions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Project Video</h4>
+                <a href="YOUR_VIDEO_LINK_HERE" class="video-link">View Project Demonstration</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentyear"></span> MovieCatalog | WDD 231 Final Project</p>
+            <p>Last Modified: <span id="lastmodified"></span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/collections.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+scripts/config.js
+.env
+*.env
+api-keys.*

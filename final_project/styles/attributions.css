@@ -1,0 +1,145 @@
+/* Attributions Page Styles */
+.attributions-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.attributions-header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.attributions-header p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
+
+.attributions-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.attribution-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.attribution-section h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.attribution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.attribution-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent-color);
+}
+
+.attribution-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.3rem;
+}
+
+.attribution-card p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+.attribution-card strong {
+    color: var(--text-color);
+}
+
+.attribution-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.attribution-card a:hover {
+    text-decoration: underline;
+}
+
+.attribution-note {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    font-style: italic;
+}
+
+/* Project Info Section */
+.project-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.info-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+}
+
+.info-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+.info-card p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card li {
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.info-card li:before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+.info-card strong {
+    color: var(--text-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .attributions-header h1 {
+        font-size: 2rem;
+    }
+    
+    .attribution-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .attribution-card {
+        padding: var(--spacing-md);
+    }
+}

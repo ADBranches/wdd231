@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover and explore thousands of movies with our comprehensive movie catalog. Search, filter, and find your next favorite film.">
+    <meta name="author" content="Your Name">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="MovieCatalog - Discover Your Next Favorite Film">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://yourusername.github.io/wdd231/final-project/">
+    <meta property="og:description" content="Explore a vast collection of movies with detailed information, ratings, and recommendations. Your ultimate movie discovery platform.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/home.css">
+    
+    <title>MovieCatalog - Discover Your Next Favorite Film</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>🎬 MovieCatalog</h1>
+            </div>
+            <nav>
+                <button id="hamburger-btn" aria-label="Toggle navigation">☰</button>
+                <ul id="primary-nav">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="catalog.html">Movie Catalog</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Discover Amazing Movies</h2>
+                <p>Explore thousands of films, get recommendations, and build your watchlist</p>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for movies...">
+                    <button id="search-btn">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-movies">
+            <h2>Featured Movies</h2>
+            <div id="featured-movies-container" class="movies-grid">
+                <!-- Dynamic content will be loaded here -->
+                <div class="loading">Loading featured movies...</div>
+            </div>
+        </section>
+
+        <section class="movie-categories">
+            <h2>Browse by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-genre="28">
+                    <h3>Action</h3>
+                    <p>Thrilling adventures</p>
+                </div>
+                <div class="category-card" data-genre="35">
+                    <h3>Comedy</h3>
+                    <p>Laugh-out-loud fun</p>
+                </div>
+                <div class="category-card" data-genre="18">
+                    <h3>Drama</h3>
+                    <p>Emotional stories</p>
+                </div>
+                <div class="category-card" data-genre="878">
+                    <h3>Sci-Fi</h3>
+                    <p>Future worlds</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MovieCatalog</h3>
+                <p>Your ultimate movie discovery platform</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="catalog.html">Browse All Movies</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="attributions.html">Attributions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Project Video</h4>
+                <a href="YOUR_VIDEO_LINK_HERE" class="video-link">View Project Demonstration</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentyear"></span> MovieCatalog | WDD 231 Final Project</p>
+            <p>Last Modified: <span id="lastmodified"></span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/home.js" type="module"></script>
+</body>
+</html>

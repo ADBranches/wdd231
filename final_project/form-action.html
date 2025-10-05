@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for your movie suggestion! We'll review your submission and add it to our catalog.">
+    <meta name="author" content="Your Name">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Movie Suggestion Received - MovieCatalog">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-form.jpg">
+    <meta property="og:url" content="https://yourusername.github.io/wdd231/final-project/form-action.html">
+    <meta property="og:description" content="Thank you for contributing to our movie database. Your suggestion helps us grow our collection.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/form-action.css">
+    
+    <title>Movie Suggestion Received | MovieCatalog</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1><a href="index.html">🎬 MovieCatalog</a></h1>
+            </div>
+            <nav>
+                <button id="hamburger-btn" aria-label="Toggle navigation">☰</button>
+                <ul id="primary-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Movie Catalog</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="confirmation-container">
+            <div class="confirmation-card">
+                <div class="confirmation-icon">✅</div>
+                <h1>Thank You for Your Movie Suggestion!</h1>
+                <p class="confirmation-message">
+                    We've received your movie suggestion and our team will review it shortly. 
+                    If approved, it will be added to our catalog within 2-3 business days.
+                </p>
+                
+                <!-- Display Form Data -->
+                <div class="submission-details">
+                    <h2>Submission Details</h2>
+                    <div id="form-data-display" class="form-data-grid">
+                        <!-- Dynamic form data will be displayed here -->
+                        <div class="loading">Loading submission details...</div>
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="next-steps">
+                    <h3>What Happens Next?</h3>
+                    <ul class="steps-list">
+                        <li>
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <strong>Review Process</strong>
+                                <p>Our team verifies movie details and checks for duplicates</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <strong>Quality Check</strong>
+                                <p>We ensure all information meets our catalog standards</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <strong>Publication</strong>
+                                <p>Approved movies are added to the public catalog</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <a href="catalog.html" class="btn btn-primary">Browse Movie Catalog</a>
+                    <a href="index.html" class="btn btn-secondary">Return to Homepage</a>
+                    <button id="suggest-another" class="btn btn-outline">Suggest Another Movie</button>
+                </div>
+
+                <!-- Submission ID -->
+                <div class="submission-id">
+                    <p><strong>Submission ID:</strong> <span id="submission-id">Loading...</span></p>
+                    <small>Keep this ID for reference if you need to contact us about your submission.</small>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MovieCatalog</h3>
+                <p>Your ultimate movie discovery platform</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Movie Catalog</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="attributions.html">Attributions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Project Video</h4>
+                <a href="YOUR_VIDEO_LINK_HERE" class="video-link">View Project Demonstration</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentyear"></span> MovieCatalog | WDD 231 Final Project</p>
+            <p>Last Modified: <span id="lastmodified"></span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/form-action.js"></script>
+</body>
+</html>
