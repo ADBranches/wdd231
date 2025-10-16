@@ -44,8 +44,8 @@
     </header>
 
     <main>
-        <div class="catalog-header">
-            <h1>Movie Catalog</h1>
+        <h1>Movie Catalog</h1>
+        <div class="catalog-header">            
             <p>Discover thousands of movies with advanced filtering</p>
         </div>
 
@@ -154,7 +154,7 @@
                 <h2>Suggest a Movie</h2>
                 <p>Can't find a movie in our catalog? Suggest it below!</p>
                 
-                <form id="movie-suggestion-form" method="get" action="form-action.html">
+                <form id="movie-suggestion-form" method="get" action="form-action.html"></form>
                     <div class="form-grid">
                         <!-- Movie Information -->
                         <div class="form-group">
@@ -234,6 +234,40 @@
                     </div>
                 </form>
             </div>
+        </section>
+        <!-- Add this section to catalog.html or create suggestion.html -->
+        <section class="suggestion-form" id="suggestion-form">
+            <h2>Suggest a Movie</h2>
+            <form action="form-action.html" method="GET">
+                <div class="form-group">
+                    <label for="movieTitle">Movie Title *</label>
+                    <input type="text" id="movieTitle" name="movieTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="releaseYear">Release Year *</label>
+                    <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2030" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="movieGenre">Genre *</label>
+                    <select id="movieGenre" name="movieGenre" required>
+                        <option value="">Select Genre</option>
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="horror">Horror</option>
+                        <option value="sci-fi">Science Fiction</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="suggesterName">Your Name *</label>
+                    <input type="text" id="suggesterName" name="suggesterName" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit Suggestion</button>
+            </form>
         </section>
     </main>
 
